@@ -36,6 +36,7 @@ class FirstFragment : Fragment() {
         _binding = null
     }
 
+    //Change to make a pull request
     private fun setListeners() {
         binding.buttonHideShowText.setOnClickListener {
             binding.helloTextView.isVisible = !binding.helloTextView.isVisible
