@@ -16,13 +16,13 @@ class NewContactFragment : Fragment() {
     private var _binding: FragmentNewContactBinding? = null
     private val binding get() = _binding!!
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentNewContactBinding.inflate(inflater, container, false)
@@ -91,7 +91,9 @@ class NewContactFragment : Fragment() {
         oib: String,
         gender: String,
         education: String,
-        motherName: String, fatherName: String, nationality: String
+        motherName: String,
+        fatherName: String,
+        nationality: String
     ): Boolean {
         var validated = true
 
@@ -159,5 +161,4 @@ class NewContactFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
 }

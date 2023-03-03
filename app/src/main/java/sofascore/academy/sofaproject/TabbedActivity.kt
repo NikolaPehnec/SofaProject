@@ -33,6 +33,5 @@ class TabbedActivity : AppCompatActivity() {
                 else -> return@setOnItemSelectedListener true
             }
         }
-
     }
 }

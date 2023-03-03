@@ -18,10 +18,10 @@ class FirstFragment : Fragment() {
     private val binding get() = _binding!!
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         _binding = FragmentFirstBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -37,22 +37,24 @@ class FirstFragment : Fragment() {
         _binding = null
     }
 
-    //Change to make a pull request
+    // Change to make a pull request
     private fun setListeners() {
         binding.buttonHideShowText.setOnClickListener {
             binding.helloTextView.isVisible = !binding.helloTextView.isVisible
 
-            if (binding.buttonHideShowText.text == getText(R.string.hide))
+            if (binding.buttonHideShowText.text == getText(R.string.hide)) {
                 binding.buttonHideShowText.text = getText(R.string.show)
-            else
+            } else {
                 binding.buttonHideShowText.text = getText(R.string.hide)
+            }
         }
 
         binding.buttonChangeText.setOnClickListener {
-            if (binding.helloTextView.text == getText(R.string.hello_text))
+            if (binding.helloTextView.text == getText(R.string.hello_text)) {
                 binding.helloTextView.text = getText(R.string.hello_text2)
-            else
+            } else {
                 binding.helloTextView.text = getText(R.string.hello_text)
+            }
         }
     }
 }

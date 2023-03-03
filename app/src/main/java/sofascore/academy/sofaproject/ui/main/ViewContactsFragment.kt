@@ -30,7 +30,8 @@ class ViewContactsFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentViewContactsBinding.inflate(inflater, container, false)
@@ -55,5 +56,4 @@ class ViewContactsFragment : Fragment() {
             binding.contactsLinearLayout.addView(newTextView)
         }
     }
-
 }
