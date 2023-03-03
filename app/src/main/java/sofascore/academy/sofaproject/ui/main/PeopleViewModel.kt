@@ -8,7 +8,11 @@ import sofascore.academy.sofaproject.data.Person
 class PeopleViewModel : ViewModel() {
 
     private val _peopleList: MutableLiveData<MutableList<Person>> = MutableLiveData()
-    private val peopleList: LiveData<MutableList<Person>> = _peopleList
+    val peopleList: LiveData<MutableList<Person>> = _peopleList
+
+    init {
+        _peopleList.value = mutableListOf()
+    }
 
     fun addPerson(person: Person) {
         _peopleList.value?.add(person)

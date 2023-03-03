@@ -6,20 +6,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.activityViewModels
 import sofascore.academy.sofaproject.R
 import sofascore.academy.sofaproject.data.Person
 import sofascore.academy.sofaproject.databinding.FragmentNewContactBinding
 
 class NewContactFragment : Fragment() {
-    private lateinit var peopleViewModel: PeopleViewModel
+    private val peopleViewModel: PeopleViewModel by activityViewModels()
     private var _binding: FragmentNewContactBinding? = null
     private val binding get() = _binding!!
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        peopleViewModel = ViewModelProvider(this)[PeopleViewModel::class.java]
     }
 
     override fun onCreateView(
