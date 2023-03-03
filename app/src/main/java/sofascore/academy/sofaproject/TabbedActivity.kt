@@ -6,6 +6,7 @@ import androidx.viewpager2.widget.ViewPager2
 import sofascore.academy.sofaproject.databinding.ActivityTabbedBinding
 import sofascore.academy.sofaproject.ui.main.SectionsPagerAdapter
 
+//testing
 class TabbedActivity : AppCompatActivity() {
     private lateinit var binding: ActivityTabbedBinding
 
