@@ -8,8 +8,6 @@ import sofascore.academy.sofaproject.ui.main.SectionsPagerAdapter
 
 class TabbedActivity : AppCompatActivity() {
     private lateinit var binding: ActivityTabbedBinding
-    //private val viewModel: PeopleViewModel by viewModels()
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

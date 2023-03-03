@@ -1,4 +1,4 @@
-package sofascore.academy.sofaproject
+package sofascore.academy.sofaproject.dz1
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import sofascore.academy.sofaproject.R
 import sofascore.academy.sofaproject.databinding.FragmentFirstBinding
 
 class FirstFragment : Fragment() {

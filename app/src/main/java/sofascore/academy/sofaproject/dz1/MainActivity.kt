@@ -1,4 +1,4 @@
-package sofascore.academy.sofaproject
+package sofascore.academy.sofaproject.dz1
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -6,6 +6,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
+import sofascore.academy.sofaproject.R
 import sofascore.academy.sofaproject.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

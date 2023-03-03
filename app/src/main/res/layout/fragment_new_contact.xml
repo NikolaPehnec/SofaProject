@@ -187,7 +187,6 @@
 
             </LinearLayout>
         </ScrollView>
-
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

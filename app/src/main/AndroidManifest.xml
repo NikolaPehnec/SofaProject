@@ -27,7 +27,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".dz1.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.SofaProject.NoActionBar">
 
