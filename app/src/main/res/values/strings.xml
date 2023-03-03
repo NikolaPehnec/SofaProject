@@ -11,8 +11,23 @@
     <string name="hello_text">Hello SofaScore Academy</string>
     <string name="hello_text2">Welcome to\nSofaScore Academy</string>
     <string name="title_activity_tabbed">TabbedActivity</string>
-    <string name="tab_text_1">Tab 1</string>
-    <string name="tab_text_2">Tab 2</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="tab_text_1">Add</string>
+    <string name="tab_text_2">Contacts</string>
+
+    <!--fragment_new_contact-->
+    <string name="new_contact_title">Create a new person</string>
+    <string name="first_name_hint">First name</string>
+    <string name="last_name_hint">Last name</string>
+    <string name="age_hint">Age</string>
+    <string name="oib_hint">Oib</string>
+    <string name="gender_hint">Gender</string>
+    <string name="education_hint">Education</string>
+    <string name="mother_name_hint">Mother name</string>
+    <string name="father_name_hint">Father name</string>
+    <string name="nationality_hint">Nationality</string>
+    <string name="additional_info_hint">Additional info</string>
+
+
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

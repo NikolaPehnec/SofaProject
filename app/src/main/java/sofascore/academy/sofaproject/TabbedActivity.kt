@@ -3,8 +3,6 @@ package sofascore.academy.sofaproject
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
-import com.google.android.material.tabs.TabLayout
-import com.google.android.material.tabs.TabLayoutMediator
 import sofascore.academy.sofaproject.databinding.ActivityTabbedBinding
 import sofascore.academy.sofaproject.ui.main.SectionsPagerAdapter
 
@@ -22,10 +20,20 @@ class TabbedActivity : AppCompatActivity() {
         val viewPager: ViewPager2 = binding.viewPager
         viewPager.adapter = sectionsPagerAdapter
 
-        val tabs: TabLayout = binding.tabs
-        TabLayoutMediator(tabs, viewPager) { tab, position ->
-
-        }.attach()
+        val bottomNavigationView = binding.bottomNavigation
+        bottomNavigationView.setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.page_1 -> {
+                    viewPager.currentItem = 0
+                    return@setOnItemSelectedListener true
+                }
+                R.id.page_2 -> {
+                    viewPager.currentItem = 1
+                    return@setOnItemSelectedListener true
+                }
+                else -> return@setOnItemSelectedListener true
+            }
+        }
 
     }
 }
