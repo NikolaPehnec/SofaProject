@@ -1,0 +1,2 @@
+- name: Run AndroidLint with reviewdog
+  uses: DVDAndroid/action-android-lint@v1.2
