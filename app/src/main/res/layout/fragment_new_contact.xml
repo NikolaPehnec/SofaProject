@@ -74,7 +74,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:hint="@string/age_hint"
-                        android:inputType="text"
+                        android:inputType="number"
                         android:maxLines="1"
                         android:nextFocusDown="@id/oib" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -89,7 +89,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:hint="@string/oib_hint"
-                        android:inputType="text"
+                        android:inputType="number"
                         android:maxLines="1"
                         android:nextFocusDown="@id/gender" />
                 </com.google.android.material.textfield.TextInputLayout>
