@@ -14,12 +14,12 @@ import sofascore.academy.sofaproject.R
  * create an instance of this fragment.
  */
 class ViewContactsFragment : Fragment() {
-    private lateinit var pageViewModel: PageViewModel
+    private lateinit var pageViewModel: PeopleViewModel
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        pageViewModel = ViewModelProvider(this)[PageViewModel::class.java]
+        pageViewModel = ViewModelProvider(this)[PeopleViewModel::class.java]
     }
 
     override fun onCreateView(
