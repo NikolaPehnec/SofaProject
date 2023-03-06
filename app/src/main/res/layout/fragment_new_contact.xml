@@ -27,6 +27,7 @@
             android:theme="@style/Theme.SofaProject">
 
             <LinearLayout
+                android:id="@+id/newPersonLinearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/input_form_margin"
