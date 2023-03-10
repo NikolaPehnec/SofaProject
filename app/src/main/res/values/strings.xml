@@ -12,7 +12,7 @@
     <string name="hello_text2">Welcome to\nSofaScore Academy</string>
     <string name="title_activity_tabbed">TabbedActivity</string>
     <string name="tab_text_1">Add</string>
-    <string name="tab_text_2">Contacts</string>
+    <string name="tab_text_2">Fighters</string>
 
     <!--fragment_new_contact-->
     <string name="new_fighter_title">Add a new fighter</string>
