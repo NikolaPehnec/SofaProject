@@ -7,13 +7,14 @@ data class Fighter(
     val height: String,
     val weight: String,
     val reach: String,
-    val stance: String,
+    val stance: Stance,
+    val fightingStyle: FightingStyle,
     val win: String,
     val lose: String,
     val draw: String
 
 ) {
     override fun toString(): String {
-        return "$firstName, $lastName, $nickname, $height, $weight, $reach, $stance, $win, $lose, $draw"
+        return "$firstName, $lastName, $nickname, $height, $weight, $reach, $stance, $fightingStyle, $win, $lose, $draw"
     }
 }

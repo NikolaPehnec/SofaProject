@@ -36,4 +36,16 @@
 
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="stances">
+        <item> Orthodox</item>
+        <item> Southpaw</item>
+        <item> Switch</item>
+    </string-array>
+
+    <string name="fighter_img_desc">Fighter kick image</string>
+    <string name="fighting_style">Style of fighting</string>
+    <string name="rb_striker">Striker</string>
+    <string name="rb_grappler">Grappler</string>
+    <string name="rb_all_rounder">All rounder</string>
 </resources>

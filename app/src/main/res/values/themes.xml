@@ -11,6 +11,8 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">@color/blue</item>
+        <item name="fontFamily">@font/montserrat_family</item>
+
         <!-- Customize your theme here. -->
     </style>
 
@@ -23,7 +25,7 @@
         <item name="android:textSize">26sp</item>
         <item name="android:textColor">@color/blue</item>
         <item name="android:textAlignment">center</item>
-        <item name="fontFamily">monospace</item>
+        <item name="fontFamily">@font/montserrat_family</item>
     </style>
 
     <style name="Theme.SofaProject.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
