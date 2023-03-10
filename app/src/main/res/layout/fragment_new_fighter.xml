@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.main.NewContactFragment">
+    tools:context=".ui.main.NewFighterFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,7 +19,7 @@
             android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
             android:layout_marginTop="@dimen/activity_vertical_margin"
             android:layout_marginBottom="@dimen/activity_vertical_margin_small"
-            android:text="@string/new_contact_title" />
+            android:text="@string/new_fighter_title" />
 
         <ScrollView
             android:layout_width="match_parent"
@@ -27,7 +27,7 @@
             android:theme="@style/Theme.SofaProject">
 
             <LinearLayout
-                android:id="@+id/newPersonLinearLayout"
+                android:id="@+id/newFighterLinearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/input_form_margin"
@@ -62,7 +62,7 @@
                         android:hint="@string/last_name_hint"
                         android:inputType="text"
                         android:maxLines="1"
-                        android:nextFocusDown="@id/age" />
+                        android:nextFocusDown="@id/nickname" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -71,13 +71,13 @@
                     app:boxBackgroundColor="@android:color/transparent">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/age"
+                        android:id="@+id/nickname"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:hint="@string/age_hint"
+                        android:hint="@string/nickname_hint"
                         android:inputType="number"
                         android:maxLines="1"
-                        android:nextFocusDown="@id/oib" />
+                        android:nextFocusDown="@id/height" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -86,13 +86,13 @@
                     app:boxBackgroundColor="@android:color/transparent">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/oib"
+                        android:id="@+id/height"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:hint="@string/oib_hint"
+                        android:hint="@string/height_hint"
                         android:inputType="number"
                         android:maxLines="1"
-                        android:nextFocusDown="@id/gender" />
+                        android:nextFocusDown="@id/weight" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -101,13 +101,13 @@
                     app:boxBackgroundColor="@android:color/transparent">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/gender"
+                        android:id="@+id/weight"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:hint="@string/gender_hint"
+                        android:hint="@string/weight_hint"
                         android:inputType="text"
                         android:maxLines="1"
-                        android:nextFocusDown="@id/education" />
+                        android:nextFocusDown="@id/reach" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -116,29 +116,13 @@
                     app:boxBackgroundColor="@android:color/transparent">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/education"
+                        android:id="@+id/reach"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:hint="@string/education_hint"
+                        android:hint="@string/reach_hint"
                         android:inputType="text"
                         android:maxLines="1"
-                        android:nextFocusDown="@id/motherName" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:boxBackgroundColor="@android:color/transparent">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/motherName"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:hint="@string/mother_name_hint"
-                        android:inputType="text"
-                        android:maxLines="1"
-                        android:nextFocusDown="@id/fatherName" />
+                        android:nextFocusDown="@id/stance" />
                 </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -148,13 +132,29 @@
                     app:boxBackgroundColor="@android:color/transparent">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/fatherName"
+                        android:id="@+id/stance"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:hint="@string/father_name_hint"
+                        android:hint="@string/stance_hint"
                         android:inputType="text"
                         android:maxLines="1"
-                        android:nextFocusDown="@id/nationality" />
+                        android:nextFocusDown="@id/win" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxBackgroundColor="@android:color/transparent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/win"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="@string/win_hint"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:nextFocusDown="@id/lose" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -164,12 +164,12 @@
                     app:boxBackgroundColor="@android:color/transparent">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/nationality"
+                        android:id="@+id/lose"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:hint="@string/nationality_hint"
+                        android:hint="@string/lose_hint"
                         android:inputType="text"
-                        android:nextFocusDown="@id/additionalInfo" />
+                        android:nextFocusDown="@id/draw" />
                 </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -179,10 +179,10 @@
                     app:boxBackgroundColor="@android:color/transparent">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/additionalInfo"
+                        android:id="@+id/draw"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:hint="@string/additional_info_hint"
+                        android:hint="@string/draw_hint"
                         android:inputType="text" />
                 </com.google.android.material.textfield.TextInputLayout>
 

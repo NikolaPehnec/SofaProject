@@ -11,12 +11,12 @@ import androidx.fragment.app.activityViewModels
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import sofascore.academy.sofaproject.R
-import sofascore.academy.sofaproject.data.Person
-import sofascore.academy.sofaproject.databinding.FragmentNewContactBinding
+import sofascore.academy.sofaproject.data.Fighter
+import sofascore.academy.sofaproject.databinding.FragmentNewFighterBinding
 
-class NewContactFragment : Fragment() {
-    private val peopleViewModel: PeopleViewModel by activityViewModels()
-    private var _binding: FragmentNewContactBinding? = null
+class NewFighterFragment : Fragment() {
+    private val fighterViewModel: FighterViewModel by activityViewModels()
+    private var _binding: FragmentNewFighterBinding? = null
     private val binding get() = _binding!!
     private val editTextFields = mutableListOf<TextInputEditText>()
 
@@ -29,9 +29,9 @@ class NewContactFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentNewContactBinding.inflate(inflater, container, false)
+        _binding = FragmentNewFighterBinding.inflate(inflater, container, false)
 
-        binding.newPersonLinearLayout.children.filterIsInstance(TextInputLayout::class.java)
+        binding.newFighterLinearLayout.children.filterIsInstance(TextInputLayout::class.java)
             .forEach { txtInptLayout ->
                 txtInptLayout.editText?.let {
                     editTextFields.add(it as TextInputEditText)
@@ -50,30 +50,19 @@ class NewContactFragment : Fragment() {
     }
 
     private fun addNewPerson() {
-        val firstName = binding.firstName.text.toString()
-        val lastName = binding.lastName.text.toString()
-        val age = binding.age.text.toString()
-        val oib = binding.oib.text.toString()
-        val gender = binding.gender.text.toString()
-        val education = binding.education.text.toString()
-        val fatherName = binding.fatherName.text.toString()
-        val motherName = binding.motherName.text.toString()
-        val nationality = binding.nationality.text.toString()
-        val additionalInfo = binding.additionalInfo.text.toString()
-
         if (validateData()) {
-            peopleViewModel.addPerson(
-                Person(
-                    firstName,
-                    lastName,
-                    age,
-                    oib,
-                    gender,
-                    education,
-                    motherName,
-                    fatherName,
-                    nationality,
-                    additionalInfo
+            fighterViewModel.addFighter(
+                Fighter(
+                    binding.firstName.text.toString(),
+                    binding.lastName.text.toString(),
+                    binding.nickname.text.toString(),
+                    binding.height.text.toString(),
+                    binding.weight.text.toString(),
+                    binding.reach.text.toString(),
+                    binding.stance.text.toString(),
+                    binding.win.text.toString(),
+                    binding.lose.text.toString(),
+                    binding.draw.text.toString(),
                 )
             )
 
@@ -99,7 +88,11 @@ class NewContactFragment : Fragment() {
     }
 
     private fun showSuccessNotification() {
-        Toast.makeText(requireContext(), getString(R.string.add_person_success), Toast.LENGTH_SHORT)
+        Toast.makeText(
+            requireContext(),
+            getString(R.string.add_fighter_success),
+            Toast.LENGTH_SHORT
+        )
             .show()
     }
 

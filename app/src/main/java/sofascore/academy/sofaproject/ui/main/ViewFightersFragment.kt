@@ -9,20 +9,20 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import sofascore.academy.sofaproject.R
-import sofascore.academy.sofaproject.data.Person
-import sofascore.academy.sofaproject.databinding.FragmentViewContactsBinding
+import sofascore.academy.sofaproject.data.Fighter
+import sofascore.academy.sofaproject.databinding.FragmentViewFightersBinding
 import sofascore.academy.sofaproject.utils.dpToPx
 import kotlin.math.roundToInt
 
-class ViewContactsFragment : Fragment() {
-    private val peopleViewModel: PeopleViewModel by activityViewModels()
-    private var _binding: FragmentViewContactsBinding? = null
+class ViewFightersFragment : Fragment() {
+    private val peopleViewModel: FighterViewModel by activityViewModels()
+    private var _binding: FragmentViewFightersBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        peopleViewModel.peopleList.observe(this) {
+        peopleViewModel.fighterList.observe(this) {
             it?.let {
                 populateData(it)
             }
@@ -34,12 +34,12 @@ class ViewContactsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentViewContactsBinding.inflate(inflater, container, false)
+        _binding = FragmentViewFightersBinding.inflate(inflater, container, false)
         return binding.root
     }
 
-    private fun populateData(contacts: MutableList<Person>) {
-        binding.contactsLinearLayout.removeAllViews()
+    private fun populateData(contacts: MutableList<Fighter>) {
+        binding.fightersLinearLayout.removeAllViews()
 
         for (contact in contacts) {
             val newTextView = TextView(requireContext())
@@ -53,7 +53,7 @@ class ViewContactsFragment : Fragment() {
             layoutParams.setMargins(0, marginTop.dpToPx(), 0, 0)
             newTextView.layoutParams = layoutParams
 
-            binding.contactsLinearLayout.addView(newTextView)
+            binding.fightersLinearLayout.addView(newTextView)
         }
     }
 }

@@ -14,9 +14,9 @@ class SectionsPagerAdapter(fm: FragmentManager, lifecycle: Lifecycle) :
 
     override fun createFragment(position: Int): Fragment {
         when (position) {
-            0 -> return NewContactFragment()
-            1 -> return ViewContactsFragment()
+            0 -> return NewFighterFragment()
+            1 -> return ViewFightersFragment()
         }
-        return NewContactFragment()
+        return NewFighterFragment()
     }
 }
