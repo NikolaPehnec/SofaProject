@@ -12,7 +12,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/title_text_view"
             style="@style/Theme.SofaProject.Titles"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -28,9 +28,9 @@
             android:layout_marginStart="8dp"
             android:contentDescription="@string/fighter_img_desc"
             android:src="@drawable/kickboxer_silhouette"
-            app:layout_constraintBottom_toBottomOf="@+id/textView"
-            app:layout_constraintStart_toEndOf="@+id/textView"
-            app:layout_constraintTop_toTopOf="@+id/textView" />
+            app:layout_constraintBottom_toBottomOf="@+id/title_text_view"
+            app:layout_constraintStart_toEndOf="@+id/title_text_view"
+            app:layout_constraintTop_toTopOf="@+id/title_text_view" />
 
         <ScrollView
             android:layout_width="match_parent"
@@ -38,125 +38,65 @@
             android:layout_marginTop="16dp"
             android:theme="@style/Theme.SofaProject"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView">
+            app:layout_constraintTop_toBottomOf="@+id/title_text_view">
 
             <LinearLayout
-                android:id="@+id/newFighterLinearLayout"
+                android:id="@+id/new_fighter_linear_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/input_form_margin"
                 android:orientation="vertical"
                 android:paddingBottom="@dimen/scrollview_padding_bottom">
 
-                <com.google.android.material.textfield.TextInputLayout
+                <sofascore.academy.sofaproject.utils.TextLayoutAndEditText
+                    android:id="@+id/first_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:boxBackgroundColor="@android:color/transparent">
+                    app:hint="@string/first_name_hint"
+                    app:inputType="text" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/firstName"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:hint="@string/first_name_hint"
-                        android:inputType="text"
-                        android:maxLines="1"
-                        android:nextFocusDown="@id/lastName" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
+                <sofascore.academy.sofaproject.utils.TextLayoutAndEditText
+                    android:id="@+id/last_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:boxBackgroundColor="@android:color/transparent">
+                    app:hint="@string/last_name_hint"
+                    app:inputType="text" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/lastName"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:autofillHints=""
-                        android:hint="@string/last_name_hint"
-                        android:inputType="text"
-                        android:maxLines="1"
-                        android:nextFocusDown="@id/nickname" />
-                </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
+                <sofascore.academy.sofaproject.utils.TextLayoutAndEditText
+                    android:id="@+id/nickname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:boxBackgroundColor="@android:color/transparent">
+                    app:hint="@string/nickname_hint"
+                    app:inputType="text" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/nickname"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:hint="@string/nickname_hint"
-                        android:inputType="text"
-                        android:maxLines="1"
-                        android:nextFocusDown="@id/height" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
+                <sofascore.academy.sofaproject.utils.TextLayoutAndEditText
+                    android:id="@+id/height"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:boxBackgroundColor="@android:color/transparent">
+                    app:hint="@string/height_hint"
+                    app:inputType="number" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/height"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:hint="@string/height_hint"
-                        android:inputType="number"
-                        android:maxLines="1"
-                        android:nextFocusDown="@id/weight" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
+                <sofascore.academy.sofaproject.utils.TextLayoutAndEditText
+                    android:id="@+id/weight"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:boxBackgroundColor="@android:color/transparent">
+                    app:hint="@string/weight_hint"
+                    app:inputType="numberDecimal" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/weight"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:hint="@string/weight_hint"
-                        android:inputType="numberDecimal"
-                        android:maxLines="1"
-                        android:nextFocusDown="@id/reach" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
+                <sofascore.academy.sofaproject.utils.TextLayoutAndEditText
+                    android:id="@+id/reach"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:boxBackgroundColor="@android:color/transparent">
+                    app:hint="@string/reach_hint"
+                    app:inputType="numberDecimal" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/reach"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:hint="@string/reach_hint"
-                        android:inputType="numberDecimal"
-                        android:maxLines="1"
-                        android:nextFocusDown="@id/stance" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/stanceTL"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
+                <sofascore.academy.sofaproject.utils.TextLayoutAndDropdownMenu
+                    android:id="@+id/stance_dropdown_menu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/stance_hint"
-                    app:boxBackgroundColor="@android:color/transparent">
+                    app:hint="@string/stance_hint" />
 
-                    <AutoCompleteTextView
-                        android:id="@+id/stance"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="none"
-                        android:labelFor="@+id/stance"
-                        android:nextFocusDown="@id/win" />
-
-                </com.google.android.material.textfield.TextInputLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -201,52 +141,29 @@
                             android:buttonTint="@color/blue"
                             android:text="@string/rb_all_rounder" />
                     </RadioGroup>
-
                 </LinearLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
+                <sofascore.academy.sofaproject.utils.TextLayoutAndEditText
+                    android:id="@+id/win"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:boxBackgroundColor="@android:color/transparent">
+                    app:hint="@string/win_hint"
+                    app:inputType="number" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/win"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:hint="@string/win_hint"
-                        android:inputType="number"
-                        android:maxLines="1"
-                        android:nextFocusDown="@id/lose" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
+                <sofascore.academy.sofaproject.utils.TextLayoutAndEditText
+                    android:id="@+id/lose"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:maxLines="1"
-                    app:boxBackgroundColor="@android:color/transparent">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/lose"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:hint="@string/lose_hint"
-                        android:inputType="number"
-                        android:nextFocusDown="@id/draw" />
-                </com.google.android.material.textfield.TextInputLayout>
+                    app:hint="@string/lose_hint"
+                    app:inputType="number" />
 
 
-                <com.google.android.material.textfield.TextInputLayout
+                <sofascore.academy.sofaproject.utils.TextLayoutAndEditText
+                    android:id="@+id/draw"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:boxBackgroundColor="@android:color/transparent">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/draw"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:hint="@string/draw_hint"
-                        android:inputType="number" />
-                </com.google.android.material.textfield.TextInputLayout>
+                    app:hint="@string/draw_hint"
+                    app:inputType="number" />
 
             </LinearLayout>
         </ScrollView>

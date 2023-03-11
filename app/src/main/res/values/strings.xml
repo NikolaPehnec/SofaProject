@@ -28,7 +28,8 @@
     <string name="draw_hint">Num. of draws</string>
     <string name="fab_add_person_desc">Add a new person</string>
 
-    <string name="missing_field_validation">This field is required!</string>
+    <string name="missing_field_validation"> is required!</string>
+    <string name="wrong_input_validation"> value is invalid</string>
     <string name="add_fighter_success">Fighter successfully added!</string>
 
     <!--fragment_view_contacts-->

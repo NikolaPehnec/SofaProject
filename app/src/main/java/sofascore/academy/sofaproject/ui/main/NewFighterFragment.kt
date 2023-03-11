@@ -10,19 +10,18 @@ import android.widget.Toast
 import androidx.core.view.children
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
 import sofascore.academy.sofaproject.R
 import sofascore.academy.sofaproject.data.Fighter
 import sofascore.academy.sofaproject.data.FightingStyle
 import sofascore.academy.sofaproject.data.Stance
 import sofascore.academy.sofaproject.databinding.FragmentNewFighterBinding
+import sofascore.academy.sofaproject.utils.TextLayoutAndEditText
 
 class NewFighterFragment : Fragment() {
     private val fighterViewModel: FighterViewModel by activityViewModels()
     private var _binding: FragmentNewFighterBinding? = null
     private val binding get() = _binding!!
-    private val editTextFields = mutableListOf<TextInputEditText>()
+    private val textFields = mutableListOf<TextLayoutAndEditText>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,12 +34,9 @@ class NewFighterFragment : Fragment() {
     ): View {
         _binding = FragmentNewFighterBinding.inflate(inflater, container, false)
 
-        binding.newFighterLinearLayout.children.filterIsInstance(TextInputLayout::class.java)
-            .forEach { txtInptLayout ->
-                txtInptLayout.editText?.let {
-                    if (it is TextInputEditText)
-                        editTextFields.add(it)
-                }
+        binding.newFighterLinearLayout.children.filterIsInstance(TextLayoutAndEditText::class.java)
+            .forEach {
+                textFields.add(it)
             }
 
         val adapter = ArrayAdapter(
@@ -48,8 +44,7 @@ class NewFighterFragment : Fragment() {
             R.layout.list_item,
             Stance.values().map { it.stanceName }.toTypedArray()
         )
-        binding.stance.setSelection(0)
-        binding.stance.setAdapter(adapter)
+        binding.stanceDropdownMenu.setStringArrayAdapter(adapter)
 
         return binding.root
     }
@@ -69,17 +64,17 @@ class NewFighterFragment : Fragment() {
         if (validateData()) {
             fighterViewModel.addFighter(
                 Fighter(
-                    binding.firstName.text.toString(),
-                    binding.lastName.text.toString(),
-                    binding.nickname.text.toString(),
-                    binding.height.text.toString(),
-                    binding.weight.text.toString(),
-                    binding.reach.text.toString(),
-                    Stance.fromString(binding.stance.text.toString())!!,
+                    binding.firstName.getText(),
+                    binding.lastName.getText(),
+                    binding.nickname.getText(),
+                    binding.height.getText(),
+                    binding.weight.getText(),
+                    binding.reach.getText(),
+                    Stance.fromString(binding.stanceDropdownMenu.getSelectedItemText())!!,
                     FightingStyle.fromString(checkedRadioButton.text.toString())!!,
-                    binding.win.text.toString(),
-                    binding.lose.text.toString(),
-                    binding.draw.text.toString(),
+                    binding.win.getText(),
+                    binding.lose.getText(),
+                    binding.draw.getText(),
                 )
             )
 
@@ -88,18 +83,16 @@ class NewFighterFragment : Fragment() {
         }
     }
 
-    /**
-     * Basic validation
-     */
+
     fun validateData(): Boolean {
         var validated = true
-
-        editTextFields.forEach {
-            if (it.text.toString().isEmpty()) {
-                it.error = getString(R.string.missing_field_validation)
+        textFields.forEach {
+            if (!it.validateInput())
                 validated = false
-            }
         }
+
+        if (!binding.stanceDropdownMenu.validateInput())
+            validated = false
 
         return validated
     }
@@ -113,8 +106,8 @@ class NewFighterFragment : Fragment() {
     }
 
     private fun clearFields() {
-        editTextFields.forEach {
-            it.text?.clear()
+        textFields.forEach {
+            it.clearText()
         }
 
         binding.firstName.requestFocus()
