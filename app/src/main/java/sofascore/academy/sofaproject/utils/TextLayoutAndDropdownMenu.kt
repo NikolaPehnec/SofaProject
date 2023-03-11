@@ -45,12 +45,16 @@ class TextLayoutAndDropdownMenu @JvmOverloads constructor(
         return binding.textInputLayout.hint.toString()
     }
 
+    fun clearText() {
+        binding.autoCompleteTv.text?.clear()
+    }
+
     fun validateInput(): Boolean {
         if (getSelectedItemText().isEmpty()) {
             setErrorText(getHint() + " " + resources.getString(R.string.missing_field_validation))
             return false
         } else {
-            binding.textInputLayout.isErrorEnabled = false
+            binding.textInputLayout.error = null
         }
 
         return true

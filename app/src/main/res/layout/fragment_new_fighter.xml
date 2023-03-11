@@ -177,8 +177,11 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/activity_vertical_margin"
         android:backgroundTint="@color/blue"
+        android:backgroundTintMode="add"
         android:contentDescription="@string/fab_add_person_desc"
         android:elevation="16dp"
+        app:borderStrokeColor="@color/blue"
+        app:borderWidth="0dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         app:srcCompat="@drawable/ic_baseline_add_24"
         app:tint="@color/white" />

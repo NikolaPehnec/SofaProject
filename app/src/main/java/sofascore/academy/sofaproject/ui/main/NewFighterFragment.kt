@@ -34,6 +34,7 @@ class NewFighterFragment : Fragment() {
     ): View {
         _binding = FragmentNewFighterBinding.inflate(inflater, container, false)
 
+        textFields.clear()
         binding.newFighterLinearLayout.children.filterIsInstance(TextLayoutAndEditText::class.java)
             .forEach {
                 textFields.add(it)
@@ -110,6 +111,7 @@ class NewFighterFragment : Fragment() {
             it.clearText()
         }
 
+        binding.stanceDropdownMenu.clearText()
         binding.firstName.requestFocus()
     }
 

@@ -85,7 +85,7 @@ class TextLayoutAndEditText @JvmOverloads constructor(
             }
         }
 
-        if (validated) binding.textInputLayout.isErrorEnabled = false
+        if (validated) binding.textInputLayout.error = null
 
         return validated
     }
