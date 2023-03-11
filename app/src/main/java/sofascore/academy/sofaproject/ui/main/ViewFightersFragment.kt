@@ -41,5 +41,4 @@ class ViewFightersFragment : Fragment() {
 
         return binding.root
     }
-
 }

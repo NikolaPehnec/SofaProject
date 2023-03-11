@@ -9,14 +9,17 @@ import sofascore.academy.sofaproject.R
 import sofascore.academy.sofaproject.databinding.TextLayoutAndDropdownMenuBinding
 
 class TextLayoutAndDropdownMenu @JvmOverloads constructor(
-    context: Context, attrs: AttributeSet, defStyleAttr: Int = 0
+    context: Context,
+    attrs: AttributeSet,
+    defStyleAttr: Int = 0
 ) : LinearLayout(context, attrs, defStyleAttr) {
 
     private val binding: TextLayoutAndDropdownMenuBinding =
         TextLayoutAndDropdownMenuBinding.inflate(
-            LayoutInflater.from(context), this, true
+            LayoutInflater.from(context),
+            this,
+            true
         )
-
 
     init {
         context.theme.obtainStyledAttributes(attrs, R.styleable.TextLayoutAndEditText, 0, 0)
@@ -59,5 +62,4 @@ class TextLayoutAndDropdownMenu @JvmOverloads constructor(
 
         return true
     }
-
 }

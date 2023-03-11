@@ -8,13 +8,16 @@ import sofascore.academy.sofaproject.R
 import sofascore.academy.sofaproject.databinding.TextLayoutAndEditTextBinding
 
 class TextLayoutAndEditText @JvmOverloads constructor(
-    context: Context, attrs: AttributeSet, defStyleAttr: Int = 0
+    context: Context,
+    attrs: AttributeSet,
+    defStyleAttr: Int = 0
 ) : LinearLayout(context, attrs, defStyleAttr) {
 
     private val binding: TextLayoutAndEditTextBinding = TextLayoutAndEditTextBinding.inflate(
-        LayoutInflater.from(context), this, true
+        LayoutInflater.from(context),
+        this,
+        true
     )
-
 
     init {
         context.theme.obtainStyledAttributes(attrs, R.styleable.TextLayoutAndEditText, 0, 0).apply {
@@ -89,6 +92,4 @@ class TextLayoutAndEditText @JvmOverloads constructor(
 
         return validated
     }
-
-
 }

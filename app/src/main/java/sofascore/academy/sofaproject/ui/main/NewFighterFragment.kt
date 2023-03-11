@@ -75,7 +75,7 @@ class NewFighterFragment : Fragment() {
                     FightingStyle.fromString(checkedRadioButton.text.toString())!!,
                     binding.win.getText(),
                     binding.lose.getText(),
-                    binding.draw.getText(),
+                    binding.draw.getText()
                 )
             )
 
@@ -84,16 +84,17 @@ class NewFighterFragment : Fragment() {
         }
     }
 
-
     fun validateData(): Boolean {
         var validated = true
         textFields.forEach {
-            if (!it.validateInput())
+            if (!it.validateInput()) {
                 validated = false
+            }
         }
 
-        if (!binding.stanceDropdownMenu.validateInput())
+        if (!binding.stanceDropdownMenu.validateInput()) {
             validated = false
+        }
 
         return validated
     }
