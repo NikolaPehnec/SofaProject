@@ -12,28 +12,46 @@
     <string name="hello_text2">Welcome to\nSofaScore Academy</string>
     <string name="title_activity_tabbed">TabbedActivity</string>
     <string name="tab_text_1">Add</string>
-    <string name="tab_text_2">Contacts</string>
+    <string name="tab_text_2">Fighters</string>
 
     <!--fragment_new_contact-->
-    <string name="new_contact_title">Create a new person</string>
+    <string name="new_fighter_title">Add a new fighter</string>
     <string name="first_name_hint">First name</string>
     <string name="last_name_hint">Last name</string>
-    <string name="age_hint">Age</string>
-    <string name="oib_hint">Oib</string>
-    <string name="gender_hint">Gender</string>
-    <string name="education_hint">Education</string>
-    <string name="mother_name_hint">Mother name</string>
-    <string name="father_name_hint">Father name</string>
-    <string name="nationality_hint">Nationality</string>
-    <string name="additional_info_hint">Additional info</string>
+    <string name="nickname_hint">Nickname</string>
+    <string name="weight_hint">Weight (kg)</string>
+    <string name="height_hint">Height (cm)</string>
+    <string name="reach_hint">Reach (cm)</string>
+    <string name="stance_hint">Stance</string>
+    <string name="win_hint">Num. of wins</string>
+    <string name="lose_hint">Num. of losses</string>
+    <string name="draw_hint">Num. of draws</string>
     <string name="fab_add_person_desc">Add a new person</string>
 
     <string name="missing_field_validation">This field is required!</string>
-    <string name="add_person_success">Person successfully added!</string>
+    <string name="wrong_input_validation"> value is invalid, min numb</string>
+    <string name="min_number_characters_validation">Min number of characters: </string>
+    <string name="max_number_characters_validation">Max number of characters: </string>
+    <string name="min_value__validation">Min value: </string>
+    <string name="max_value_validation">Max value: </string>
+    <string name="add_fighter_success">Fighter successfully added!</string>
+    <string name="validation_exception">Num of charaters and int value parameters can not be less then 0!</string>
 
     <!--fragment_view_contacts-->
-    <string name="view_contacts_title">Contacts</string>
+    <string name="view_fighters_title">Fighters</string>
 
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="stances">
+        <item> Orthodox</item>
+        <item> Southpaw</item>
+        <item> Switch</item>
+    </string-array>
+
+    <string name="fighter_img_desc">Fighter kick image</string>
+    <string name="fighting_style">Style of fighting</string>
+    <string name="rb_striker">Striker</string>
+    <string name="rb_grappler">Grappler</string>
+    <string name="rb_all_rounder">All rounder</string>
 </resources>
