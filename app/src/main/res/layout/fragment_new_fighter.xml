@@ -53,14 +53,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:hint="@string/first_name_hint"
-                    app:inputType="textCapWords" />
+                    app:inputType="textCapWords"
+                    app:maxNumberOfCharacters="50"
+                    app:minNumberOfCharacters="2" />
 
                 <sofascore.academy.sofaproject.utils.TextLayoutAndEditText
                     android:id="@+id/last_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:hint="@string/last_name_hint"
-                    app:inputType="textCapWords" />
+                    app:inputType="textCapWords"
+                    app:maxNumberOfCharacters="50"
+                    app:minNumberOfCharacters="2" />
 
 
                 <sofascore.academy.sofaproject.utils.TextLayoutAndEditText
@@ -68,28 +72,36 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:hint="@string/nickname_hint"
-                    app:inputType="textCapWords" />
+                    app:inputType="textCapWords"
+                    app:maxNumberOfCharacters="50"
+                    app:minNumberOfCharacters="1" />
 
                 <sofascore.academy.sofaproject.utils.TextLayoutAndEditText
                     android:id="@+id/height"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:hint="@string/height_hint"
-                    app:inputType="number" />
+                    app:inputType="number"
+                    app:maxIntValue="250"
+                    app:minIntValue="50" />
 
                 <sofascore.academy.sofaproject.utils.TextLayoutAndEditText
                     android:id="@+id/weight"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:hint="@string/weight_hint"
-                    app:inputType="numberDecimal" />
+                    app:inputType="numberDecimal"
+                    app:maxIntValue="300"
+                    app:minIntValue="40" />
 
                 <sofascore.academy.sofaproject.utils.TextLayoutAndEditText
                     android:id="@+id/reach"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:hint="@string/reach_hint"
-                    app:inputType="numberDecimal" />
+                    app:inputType="numberDecimal"
+                    app:maxIntValue="300"
+                    app:minIntValue="70" />
 
                 <sofascore.academy.sofaproject.utils.TextLayoutAndDropdownMenu
                     android:id="@+id/stance_dropdown_menu"
@@ -148,14 +160,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:hint="@string/win_hint"
-                    app:inputType="number" />
+                    app:inputType="number"
+                    app:maxIntValue="200" />
 
                 <sofascore.academy.sofaproject.utils.TextLayoutAndEditText
                     android:id="@+id/lose"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:hint="@string/lose_hint"
-                    app:inputType="number" />
+                    app:inputType="number"
+                    app:maxIntValue="200" />
 
 
                 <sofascore.academy.sofaproject.utils.TextLayoutAndEditText
@@ -163,7 +177,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:hint="@string/draw_hint"
-                    app:inputType="number" />
+                    app:inputType="number"
+                    app:maxIntValue="200" />
 
             </LinearLayout>
         </ScrollView>

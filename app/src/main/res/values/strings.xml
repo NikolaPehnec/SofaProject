@@ -28,9 +28,14 @@
     <string name="draw_hint">Num. of draws</string>
     <string name="fab_add_person_desc">Add a new person</string>
 
-    <string name="missing_field_validation"> is required!</string>
-    <string name="wrong_input_validation"> value is invalid</string>
+    <string name="missing_field_validation">This field is required!</string>
+    <string name="wrong_input_validation"> value is invalid, min numb</string>
+    <string name="min_number_characters_validation">Min number of characters: </string>
+    <string name="max_number_characters_validation">Max number of characters: </string>
+    <string name="min_value__validation">Min value: </string>
+    <string name="max_value_validation">Max value: </string>
     <string name="add_fighter_success">Fighter successfully added!</string>
+    <string name="validation_exception">Num of charaters and int value parameters can not be less then 0!</string>
 
     <!--fragment_view_contacts-->
     <string name="view_fighters_title">Fighters</string>

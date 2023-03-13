@@ -2,6 +2,10 @@
 <resources>
     <declare-styleable name="TextLayoutAndEditText">
         <attr name="hint" format="string" />
+        <attr name="minNumberOfCharacters" format="integer" />
+        <attr name="maxNumberOfCharacters" format="integer" />
+        <attr name="minIntValue" format="integer" />
+        <attr name="maxIntValue" format="integer" />
         <attr name="inputType" format="integer">
             <enum name="text" value="0x00000001" />
             <enum name="textCapWords" value="0x00002001" />

@@ -19,12 +19,28 @@ class TextLayoutAndEditText @JvmOverloads constructor(
         true
     )
 
+    private val minNumOfCharacters: Int
+    private val maxNumOfCharacters: Int
+    private val minIntValue: Int
+    private val maxIntValue: Int
+
     init {
         context.theme.obtainStyledAttributes(attrs, R.styleable.TextLayoutAndEditText, 0, 0).apply {
             try {
                 binding.textInputLayout.hint = getString(R.styleable.TextLayoutAndEditText_hint)
                 binding.editText.inputType =
                     getInt(R.styleable.TextLayoutAndEditText_inputType, 1)
+
+                minNumOfCharacters =
+                    getInt(R.styleable.TextLayoutAndEditText_minNumberOfCharacters, -1)
+                maxNumOfCharacters =
+                    getInt(R.styleable.TextLayoutAndEditText_maxNumberOfCharacters, -1)
+                minIntValue = getInt(R.styleable.TextLayoutAndEditText_minIntValue, -1)
+                maxIntValue = getInt(R.styleable.TextLayoutAndEditText_maxIntValue, -1)
+
+                if (minNumOfCharacters < -1 || maxNumOfCharacters < -1 || minIntValue < -1 || maxIntValue < -1) {
+                    throw IllegalArgumentException(resources.getString(R.string.validation_exception))
+                }
             } finally {
                 recycle()
             }
@@ -49,47 +65,41 @@ class TextLayoutAndEditText @JvmOverloads constructor(
 
     fun validateInput(): Boolean {
         var validated = true
+
         if (getText().isEmpty()) {
-            setErrorText(getHint() + " " + resources.getString(R.string.missing_field_validation))
+            setErrorText(resources.getString(R.string.missing_field_validation))
             return false
         }
 
-        when (getHint()) {
-            resources.getString(R.string.first_name_hint), resources.getString(R.string.last_name_hint) -> {
-                if (getText().length < 3 || getText().length > 50) {
-                    setErrorText(getHint() + " " + resources.getString(R.string.wrong_input_validation))
-                    validated = false
-                }
+        minNumOfCharacters.let {
+            if (it != -1 && getText().length < it) {
+                setErrorText(resources.getString(R.string.min_number_characters_validation) + " " + it)
+                validated = false
             }
-            resources.getString(R.string.height_hint) -> {
-                if (getText().toInt() < 100 || getText().toInt() > 250) {
-                    setErrorText(getHint() + " " + resources.getString(R.string.wrong_input_validation))
-                    validated = false
-                }
+        }
+
+        maxNumOfCharacters.let {
+            if (it != -1 && getText().length > it) {
+                setErrorText(resources.getString(R.string.max_number_characters_validation) + " " + it)
+                validated = false
             }
-            resources.getString(R.string.weight_hint) -> {
-                if (getText().toInt() < 30 || getText().toInt() > 250) {
-                    setErrorText(getHint() + " " + resources.getString(R.string.wrong_input_validation))
-                    validated = false
-                }
+        }
+
+        minIntValue.let {
+            if (it != -1 && getText().toInt() < it) {
+                setErrorText(resources.getString(R.string.min_value__validation) + " " + it)
+                validated = false
             }
-            resources.getString(R.string.reach_hint) -> {
-                if (getText().toInt() < 100 || getText().toInt() > 300) {
-                    setErrorText(getHint() + " " + resources.getString(R.string.wrong_input_validation))
-                    validated = false
-                }
-            }
-            resources.getString(R.string.win_hint), resources.getString(R.string.lose_hint),
-            resources.getString(R.string.draw_hint) -> {
-                if (getText().toInt() < 0 || getText().toInt() > 200) {
-                    setErrorText(getHint() + " " + resources.getString(R.string.wrong_input_validation))
-                    validated = false
-                }
+        }
+
+        maxIntValue.let {
+            if (it != -1 && getText().toInt() > it) {
+                setErrorText(resources.getString(R.string.max_value_validation) + " " + it)
+                validated = false
             }
         }
 
         if (validated) binding.textInputLayout.error = null
-
         return validated
     }
 }
