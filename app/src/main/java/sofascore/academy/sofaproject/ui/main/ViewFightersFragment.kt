@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import sofascore.academy.sofaproject.R
 import sofascore.academy.sofaproject.data.Fighter
 import sofascore.academy.sofaproject.databinding.FragmentViewFightersBinding
 
@@ -38,6 +39,7 @@ class ViewFightersFragment : Fragment() {
         _binding = FragmentViewFightersBinding.inflate(inflater, container, false)
 
         binding.fightersListView.adapter = fighterArrayAdapter
+        activity?.title = getString(R.string.view_fighters_title)
 
         return binding.root
     }

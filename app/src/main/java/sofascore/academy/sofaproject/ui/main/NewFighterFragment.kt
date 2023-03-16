@@ -46,6 +46,7 @@ class NewFighterFragment : Fragment() {
             Stance.values().map { it.stanceName }.toTypedArray()
         )
         binding.stanceDropdownMenu.setStringArrayAdapter(adapter)
+        activity?.title = getString(R.string.new_fighter_title)
 
         return binding.root
     }
