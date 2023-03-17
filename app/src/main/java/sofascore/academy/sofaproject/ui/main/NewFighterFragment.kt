@@ -25,10 +25,6 @@ class NewFighterFragment : Fragment() {
     private val binding get() = _binding!!
     private val textFields = mutableListOf<TextLayoutAndEditText>()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -90,7 +86,7 @@ class NewFighterFragment : Fragment() {
         }
     }
 
-    fun validateData(): Boolean {
+    private fun validateData(): Boolean {
         var validated = true
         textFields.forEach {
             if (!it.validateInput()) {

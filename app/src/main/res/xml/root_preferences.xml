@@ -1,0 +1,25 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="@string/localization">
+        <ListPreference
+            app:defaultValue="English"
+            app:entries="@array/languages"
+            app:entryValues="@array/languages"
+            app:key="@string/language_pref_key"
+            app:title="@string/language_pref_title"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="Theme">
+
+        <!--  <ListPreference
+              app:defaultValue="English"
+              app:entries="@array/languages"
+              app:entryValues="@array/languages"
+              app:key="language"
+              app:title="Languages"
+              app:useSimpleSummaryProvider="true" />-->
+    </PreferenceCategory>
+
+</PreferenceScreen>

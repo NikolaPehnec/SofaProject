@@ -17,4 +17,9 @@
         android:label="@string/view_fighters_title"
         tools:layout="@layout/fragment_view_fighters" />
 
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="sofascore.academy.sofaproject.ui.main.SettingsFragment"
+        android:label="@string/settings_title" />
+
 </navigation>
