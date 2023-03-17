@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.core.view.children
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import com.google.android.material.snackbar.Snackbar
 import sofascore.academy.sofaproject.R
 import sofascore.academy.sofaproject.data.Fighter
 import sofascore.academy.sofaproject.data.FightingStyle
@@ -84,6 +85,8 @@ class NewFighterFragment : Fragment() {
 
             showSuccessNotification()
             clearFields()
+        } else {
+            showErrorNotification()
         }
     }
 
@@ -103,9 +106,14 @@ class NewFighterFragment : Fragment() {
     }
 
     private fun showSuccessNotification() {
+        Snackbar.make(binding.root, getString(R.string.add_fighter_success), Snackbar.LENGTH_SHORT)
+            .show()
+    }
+
+    private fun showErrorNotification() {
         Toast.makeText(
             requireContext(),
-            getString(R.string.add_fighter_success),
+            getString(R.string.add_fighter_error),
             Toast.LENGTH_SHORT
         ).show()
     }

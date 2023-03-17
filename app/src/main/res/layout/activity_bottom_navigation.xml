@@ -12,7 +12,8 @@
         android:theme="@style/Theme.SofaProject.CustomToolbarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/Theme.SofaProject.PopupMenuStyle">
 
         <ImageView
             android:layout_width="32dp"

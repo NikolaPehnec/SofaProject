@@ -20,6 +20,7 @@ class FighterDetailActivity : AppCompatActivity() {
         binding = ActivityFighterDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
+
         fighter = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             intent.getSerializableExtra(
                 getString(R.string.fighter_key), Fighter::class.java

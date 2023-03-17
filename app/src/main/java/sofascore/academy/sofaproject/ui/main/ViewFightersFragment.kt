@@ -2,17 +2,18 @@ package sofascore.academy.sofaproject.ui.main
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import androidx.core.view.MenuHost
+import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Lifecycle
 import sofascore.academy.sofaproject.R
 import sofascore.academy.sofaproject.adapters.FighterRecyclerAdapter
 import sofascore.academy.sofaproject.data.Fighter
 import sofascore.academy.sofaproject.databinding.FragmentViewFightersBinding
 
-class ViewFightersFragment : Fragment(), FighterRecyclerAdapter.OnItemClickListener {
+class ViewFightersFragment : Fragment(), FighterRecyclerAdapter.OnItemClickListener, MenuProvider {
     private val peopleViewModel: FighterViewModel by activityViewModels()
     private var _binding: FragmentViewFightersBinding? = null
     private val binding get() = _binding!!
@@ -26,6 +27,13 @@ class ViewFightersFragment : Fragment(), FighterRecyclerAdapter.OnItemClickListe
 
         peopleViewModel.fighterList.observe(this) {
             it?.let {
+                if (it.size == 0) {
+                    binding.noDataAnimation.playAnimation()
+                } else {
+                    binding.noDataAnimation.progress = 0f
+                    binding.noDataAnimation.pauseAnimation()
+                }
+
                 fighterArrayAdapter.setData(it)
             }
         }
@@ -41,6 +49,9 @@ class ViewFightersFragment : Fragment(), FighterRecyclerAdapter.OnItemClickListe
         activity?.title = getString(R.string.view_fighters_title)
         binding.fightersRecyclerView.adapter = fighterArrayAdapter
 
+        val menuHost: MenuHost = requireActivity()
+        menuHost.addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
+
         return binding.root
     }
 
@@ -54,5 +65,25 @@ class ViewFightersFragment : Fragment(), FighterRecyclerAdapter.OnItemClickListe
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+        menuInflater.inflate(R.menu.menu_fighters, menu)
+    }
+
+    override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+        return when (menuItem.itemId) {
+            R.id.hide_data_action -> {
+                if (menuItem.title!! == getString(R.string.action_hide_data)) {
+                    peopleViewModel.removeAllFighters()
+                    menuItem.title = getString(R.string.action_show_data)
+                } else {
+                    peopleViewModel.setDefaultFighters()
+                    menuItem.title = getString(R.string.action_hide_data)
+                }
+                true
+            }
+            else -> false
+        }
     }
 }

@@ -14,7 +14,25 @@ class FighterViewModel : ViewModel() {
     val fighterList: LiveData<MutableList<Fighter>> = _fighterList
 
     init {
-        _fighterList.value = mutableListOf(
+        _fighterList.value = DefaultData.fighters
+    }
+
+    fun addFighter(fighter: Fighter) {
+        _fighterList.value?.add(fighter)
+        _fighterList.value = _fighterList.value
+    }
+
+    fun removeAllFighters() {
+        _fighterList.value = mutableListOf()
+        _fighterList.value = _fighterList.value
+    }
+
+    fun setDefaultFighters(){
+        _fighterList.value = DefaultData.fighters
+    }
+
+    object DefaultData {
+        val fighters = mutableListOf(
             Fighter(
                 "Justin", "Gaethje", "The highlight", "180", "70.4", "177",
                 Stance.ORTHODOX, FightingStyle.STRIKER, "23", "4", "0",
@@ -41,10 +59,5 @@ class FighterViewModel : ViewModel() {
                 )
             )
         )
-    }
-
-    fun addFighter(fighter: Fighter) {
-        _fighterList.value?.add(fighter)
-        _fighterList.value = _fighterList.value
     }
 }

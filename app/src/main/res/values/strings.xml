@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">SofaProject</string>
     <string name="action_settings">Settings</string>
+    <string name="action_hide_data">Hide data</string>
+    <string name="action_show_data">Show data</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="hide">Hide</string>
@@ -35,6 +37,7 @@
     <string name="min_value__validation">Min value: </string>
     <string name="max_value_validation">Max value: </string>
     <string name="add_fighter_success">Fighter successfully added!</string>
+    <string name="add_fighter_error">Validation error!</string>
     <string name="validation_exception">Num of charaters and int value parameters can not be less then 0!</string>
 
     <string name="view_fighters_title">Fighters</string>
