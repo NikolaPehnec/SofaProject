@@ -1,5 +1,6 @@
 package sofascore.academy.sofaproject.ui.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import sofascore.academy.sofaproject.R
 import sofascore.academy.sofaproject.adapters.FighterRecyclerAdapter
+import sofascore.academy.sofaproject.data.Fighter
 import sofascore.academy.sofaproject.databinding.FragmentViewFightersBinding
 
 class ViewFightersFragment : Fragment(), FighterRecyclerAdapter.OnItemClickListener {
@@ -42,8 +44,11 @@ class ViewFightersFragment : Fragment(), FighterRecyclerAdapter.OnItemClickListe
         return binding.root
     }
 
-    override fun onItemClick(position: Int) {
-
+    override fun onItemClick(fighter: Fighter) {
+        val intent = Intent(requireContext(), FighterDetailActivity::class.java).apply {
+            putExtra(getString(R.string.fighter_key), fighter)
+        }
+        startActivity(intent)
     }
 
     override fun onDestroyView() {

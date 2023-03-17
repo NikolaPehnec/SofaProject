@@ -38,7 +38,13 @@
     <string name="validation_exception">Num of charaters and int value parameters can not be less then 0!</string>
 
     <string name="view_fighters_title">Fighters</string>
-
+    <string name="name_label">Name: </string>
+    <string name="nickname_label">Nickname:</string>
+    <string name="weight_label">Weight (kg):</string>
+    <string name="height_label">Height (cm):</string>
+    <string name="reach_label">Reach (cm):</string>
+    <string name="stance_label">Stance:</string>
+    <string name="win_draw_lose_label">Win-Draw-Lose:</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
@@ -55,4 +61,5 @@
     <string name="rb_all_rounder">All rounder</string>
     <string name="fighter_name">%1$s %2$s</string>
     <string name="fighter_score">%1$s-%2$s-%3$s</string>
+    <string name="fighter_key">fighter_id</string>
 </resources>

@@ -16,7 +16,7 @@ data class Fighter(
     val draw: String,
     val imageUrl: URL
 
-) {
+) : java.io.Serializable {
     override fun toString(): String {
         return "$firstName, $lastName, $nickname, $height, $weight, $reach, ${stance.stanceName}," +
                 " ${fightingStyle.styleName}, $win, $lose, $draw"

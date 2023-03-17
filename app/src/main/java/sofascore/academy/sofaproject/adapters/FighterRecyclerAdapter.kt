@@ -3,9 +3,9 @@ package sofascore.academy.sofaproject.adapters
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.AdapterView.OnItemClickListener
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
+import coil.ImageLoader
+import coil.request.ImageRequest
 import sofascore.academy.sofaproject.R
 import sofascore.academy.sofaproject.data.Fighter
 import sofascore.academy.sofaproject.databinding.FighterRowBinding
@@ -13,7 +13,7 @@ import sofascore.academy.sofaproject.databinding.FighterRowBinding
 class FighterRecyclerAdapter(
     private val context: Context,
     private var items: List<Fighter>,
-    listener: OnItemClickListener
+    private val listener: OnItemClickListener
 ) :
     RecyclerView.Adapter<FighterRecyclerAdapter.MyViewHolder>() {
 
@@ -34,7 +34,7 @@ class FighterRecyclerAdapter(
     override fun getItemCount(): Int = items.size
 
     interface OnItemClickListener {
-        fun onItemClick(position: Int)
+        fun onItemClick(fighter: Fighter)
     }
 
     inner class MyViewHolder(private val binding: FighterRowBinding) :
@@ -45,7 +45,19 @@ class FighterRecyclerAdapter(
                 context.getString(R.string.fighter_name, item.firstName, item.lastName)
             binding.figterScore.text =
                 context.getString(R.string.fighter_score, item.win, item.draw, item.lose)
-            binding.figterImage.load(item.imageUrl.toString())
+
+            val imgRequest = ImageRequest.Builder(context)
+                .data(item.imageUrl.toString())
+                .placeholder(R.drawable.person_placeholder)
+                .error(R.drawable.person_placeholder)
+                .target(binding.figterImage)
+                .build()
+            ImageLoader.Builder(context).build().enqueue(imgRequest)
+
+
+            binding.root.setOnClickListener {
+                listener.onItemClick(items[adapterPosition])
+            }
         }
     }
 
