@@ -23,18 +23,19 @@ class ViewFightersFragment : Fragment(), FighterRecyclerAdapter.OnItemClickListe
         super.onCreate(savedInstanceState)
 
         fighterArrayAdapter =
-            FighterRecyclerAdapter(requireContext(), emptyList(), this)
+            FighterRecyclerAdapter(requireContext(), mutableListOf(), this)
 
         peopleViewModel.fighterList.observe(this) {
             it?.let {
-                if (it.size == 0) {
-                    binding.noDataAnimation.playAnimation()
-                } else {
-                    binding.noDataAnimation.progress = 0f
-                    binding.noDataAnimation.pauseAnimation()
-                }
+                fighterArrayAdapter.addItems(it)
+                checkEmptyAdapter()
+            }
+        }
 
-                fighterArrayAdapter.setData(it)
+        peopleViewModel.coachesList.observe(this) {
+            it?.let {
+                fighterArrayAdapter.addItems(it)
+                checkEmptyAdapter()
             }
         }
     }
@@ -75,15 +76,26 @@ class ViewFightersFragment : Fragment(), FighterRecyclerAdapter.OnItemClickListe
         return when (menuItem.itemId) {
             R.id.hide_data_action -> {
                 if (menuItem.title!! == getString(R.string.action_hide_data)) {
-                    peopleViewModel.removeAllFighters()
+                    fighterArrayAdapter.removeAllItems()
+                    checkEmptyAdapter()
                     menuItem.title = getString(R.string.action_show_data)
                 } else {
                     peopleViewModel.setDefaultFighters()
+                    peopleViewModel.setDefaultCoaches()
                     menuItem.title = getString(R.string.action_hide_data)
                 }
                 true
             }
             else -> false
+        }
+    }
+
+    private fun checkEmptyAdapter() {
+        if (fighterArrayAdapter.getNumberOfItems() == 0) {
+            binding.noDataAnimation.playAnimation()
+        } else {
+            binding.noDataAnimation.progress = 0f
+            binding.noDataAnimation.pauseAnimation()
         }
     }
 }

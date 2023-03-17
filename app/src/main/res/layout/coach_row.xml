@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardBackgroundColor="@color/light_blue"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/coach_image"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:cropToPadding="true"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/coach_image"
+            android:src="@drawable/person_placeholder"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/coach_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/coach"
+            android:theme="@style/Theme.SofaProject.FighterText"
+            app:layout_constraintBottom_toTopOf="@+id/coach_name"
+            app:layout_constraintStart_toEndOf="@+id/coach_image" />
+
+        <TextView
+            android:id="@+id/coach_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:theme="@style/Theme.SofaProject.FighterText"
+            app:layout_constraintBottom_toBottomOf="@+id/coach_image"
+            app:layout_constraintStart_toEndOf="@+id/coach_image"
+            app:layout_constraintTop_toTopOf="@+id/coach_image"
+            tools:text="example example" />
+
+        <TextView
+            android:id="@+id/coach_speciality"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/coach_image"
+            tools:text="Grappling" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>

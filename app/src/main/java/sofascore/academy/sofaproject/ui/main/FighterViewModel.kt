@@ -3,6 +3,7 @@ package sofascore.academy.sofaproject.ui.main
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import sofascore.academy.sofaproject.data.Coach
 import sofascore.academy.sofaproject.data.Fighter
 import sofascore.academy.sofaproject.data.FightingStyle
 import sofascore.academy.sofaproject.data.Stance
@@ -13,8 +14,12 @@ class FighterViewModel : ViewModel() {
     private val _fighterList: MutableLiveData<MutableList<Fighter>> = MutableLiveData()
     val fighterList: LiveData<MutableList<Fighter>> = _fighterList
 
+    private val _coachesList: MutableLiveData<MutableList<Coach>> = MutableLiveData()
+    val coachesList: LiveData<MutableList<Coach>> = _coachesList
+
     init {
         _fighterList.value = DefaultData.fighters
+        _coachesList.value = DefaultData.coaches
     }
 
     fun addFighter(fighter: Fighter) {
@@ -22,13 +27,13 @@ class FighterViewModel : ViewModel() {
         _fighterList.value = _fighterList.value
     }
 
-    fun removeAllFighters() {
-        _fighterList.value = mutableListOf()
-        _fighterList.value = _fighterList.value
+
+    fun setDefaultFighters() {
+        _fighterList.value = DefaultData.fighters
     }
 
-    fun setDefaultFighters(){
-        _fighterList.value = DefaultData.fighters
+    fun setDefaultCoaches() {
+        _coachesList.value = DefaultData.coaches
     }
 
     object DefaultData {
@@ -57,6 +62,20 @@ class FighterViewModel : ViewModel() {
                 URL(
                     "https://a.espncdn.com/i/headshots/mma/players/full/2504169.png"
                 )
+            )
+        )
+
+        val coaches = mutableListOf(
+            Coach(
+                "Renzo",
+                "Gracie",
+                "Grappling",
+                URL("https://cdn.chatrisityodtong.com/wp-content/uploads/2020/07/Screenshot-2020-07-08-at-11.13.29-PM-e1594221726816.png")
+            ), Coach(
+                "Henri",
+                "Hooft",
+                "Striking",
+                URL("https://cdn.shopify.com/s/files/1/1659/8997/files/henri_hooft_1.png")
             )
         )
     }
