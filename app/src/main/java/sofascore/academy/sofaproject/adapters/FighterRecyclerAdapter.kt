@@ -3,6 +3,7 @@ package sofascore.academy.sofaproject.adapters
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
 import coil.ImageLoader
 import coil.request.ImageRequest
@@ -43,6 +44,9 @@ class FighterRecyclerAdapter(
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        holder.itemView.animation =
+            AnimationUtils.loadAnimation(holder.itemView.context, R.anim.animation_recycler)
+
         when (holder) {
             is ViewHolderFighter -> holder.bind(items[position] as Fighter)
             is ViewHolderCoach -> holder.bind(items[position] as Coach)

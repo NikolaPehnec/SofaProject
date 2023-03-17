@@ -62,6 +62,12 @@ class FighterViewModel : ViewModel() {
                 URL(
                     "https://a.espncdn.com/i/headshots/mma/players/full/2504169.png"
                 )
+            ), Fighter(
+                "Max", "Holloway", "Blessed", "180", "66", "175",
+                Stance.ORTHODOX, FightingStyle.ALL_ROUNDER, "23", "7", "0",
+                URL(
+                    "https://a.espncdn.com/combiner/i?img=/i/headshots/mma/players/full/2614933.png&w=350&h=254"
+                )
             )
         )
 
@@ -76,6 +82,16 @@ class FighterViewModel : ViewModel() {
                 "Hooft",
                 "Striking",
                 URL("https://cdn.shopify.com/s/files/1/1659/8997/files/henri_hooft_1.png")
+            ), Coach(
+                "Trevor",
+                "Wittman",
+                "Striking",
+                URL("https://www.denverpost.com/wp-content/uploads/2016/05/1016boxer.jpg?w=320")
+            ), Coach(
+                "Greg",
+                "Jackson",
+                "All rounder",
+                URL("https://cdn.shopify.com/s/files/1/1800/2299/articles/greg_jackson_1024x1024.jpg?v=1632907559")
             )
         )
     }
