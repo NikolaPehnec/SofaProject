@@ -65,4 +65,6 @@
     <string name="fighter_name">%1$s %2$s</string>
     <string name="fighter_score">%1$s-%2$s-%3$s</string>
     <string name="fighter_key">fighter_id</string>
+    <string name="coach">Coach</string>
+    <string name="coach_image">coach image</string>
 </resources>
