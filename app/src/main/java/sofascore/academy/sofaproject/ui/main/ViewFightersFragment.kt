@@ -4,29 +4,27 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import sofascore.academy.sofaproject.R
-import sofascore.academy.sofaproject.data.Fighter
+import sofascore.academy.sofaproject.adapters.FighterRecyclerAdapter
 import sofascore.academy.sofaproject.databinding.FragmentViewFightersBinding
 
-class ViewFightersFragment : Fragment() {
+class ViewFightersFragment : Fragment(), FighterRecyclerAdapter.OnItemClickListener {
     private val peopleViewModel: FighterViewModel by activityViewModels()
     private var _binding: FragmentViewFightersBinding? = null
     private val binding get() = _binding!!
-    private lateinit var fighterArrayAdapter: ArrayAdapter<Fighter>
+    private lateinit var fighterArrayAdapter: FighterRecyclerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         fighterArrayAdapter =
-            ArrayAdapter<Fighter>(requireContext(), android.R.layout.simple_list_item_1)
+            FighterRecyclerAdapter(requireContext(), emptyList(), this)
 
         peopleViewModel.fighterList.observe(this) {
             it?.let {
-                fighterArrayAdapter.clear()
-                fighterArrayAdapter.addAll(it)
+                fighterArrayAdapter.setData(it)
             }
         }
     }
@@ -38,9 +36,18 @@ class ViewFightersFragment : Fragment() {
     ): View {
         _binding = FragmentViewFightersBinding.inflate(inflater, container, false)
 
-        binding.fightersListView.adapter = fighterArrayAdapter
         activity?.title = getString(R.string.view_fighters_title)
+        binding.fightersRecyclerView.adapter = fighterArrayAdapter
 
         return binding.root
+    }
+
+    override fun onItemClick(position: Int) {
+
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

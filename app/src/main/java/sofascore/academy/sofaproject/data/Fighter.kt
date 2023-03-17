@@ -1,5 +1,7 @@
 package sofascore.academy.sofaproject.data
 
+import java.net.URL
+
 data class Fighter(
     val firstName: String,
     val lastName: String,
@@ -11,11 +13,12 @@ data class Fighter(
     val fightingStyle: FightingStyle,
     val win: String,
     val lose: String,
-    val draw: String
+    val draw: String,
+    val imageUrl: URL
 
 ) {
     override fun toString(): String {
         return "$firstName, $lastName, $nickname, $height, $weight, $reach, ${stance.stanceName}," +
-            " ${fightingStyle.styleName}, $win, $lose, $draw"
+                " ${fightingStyle.styleName}, $win, $lose, $draw"
     }
 }

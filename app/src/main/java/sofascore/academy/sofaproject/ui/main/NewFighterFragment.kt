@@ -16,6 +16,7 @@ import sofascore.academy.sofaproject.data.FightingStyle
 import sofascore.academy.sofaproject.data.Stance
 import sofascore.academy.sofaproject.databinding.FragmentNewFighterBinding
 import sofascore.academy.sofaproject.utils.TextLayoutAndEditText
+import java.net.URL
 
 class NewFighterFragment : Fragment() {
     private val fighterViewModel: FighterViewModel by activityViewModels()
@@ -76,7 +77,8 @@ class NewFighterFragment : Fragment() {
                     FightingStyle.fromString(checkedRadioButton.text.toString())!!,
                     binding.win.getText(),
                     binding.lose.getText(),
-                    binding.draw.getText()
+                    binding.draw.getText(),
+                    URL("https://live-production.wcms.abc-cdn.net.au/eead633374dd407290c366118c1b679e?impolicy=wcms_crop_resize&cropH=2893&cropW=4340&xPos=34&yPos=0&width=862&height=575")
                 )
             )
 
