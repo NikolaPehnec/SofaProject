@@ -76,7 +76,7 @@ class FighterRecyclerAdapter(
     override fun getItemCount(): Int = items.size
 
     interface OnItemClickListener {
-        fun onItemClick(fighter: Fighter)
+        fun onItemClick(item: Any)
     }
 
     inner class ViewHolderFighter(private val binding: FighterRowBinding) :
@@ -117,6 +117,10 @@ class FighterRecyclerAdapter(
                 .target(binding.coachImage)
                 .build()
             ImageLoader.Builder(context).build().enqueue(imgRequest)
+
+            binding.root.setOnClickListener {
+                listener.onItemClick(items[adapterPosition] as Coach)
+            }
         }
     }
 

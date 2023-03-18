@@ -10,6 +10,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import sofascore.academy.sofaproject.R
 import sofascore.academy.sofaproject.adapters.FighterRecyclerAdapter
+import sofascore.academy.sofaproject.data.Coach
 import sofascore.academy.sofaproject.data.Fighter
 import sofascore.academy.sofaproject.databinding.FragmentViewFightersBinding
 
@@ -56,10 +57,21 @@ class ViewFightersFragment : Fragment(), FighterRecyclerAdapter.OnItemClickListe
         return binding.root
     }
 
-    override fun onItemClick(fighter: Fighter) {
-        val intent = Intent(requireContext(), FighterDetailActivity::class.java).apply {
-            putExtra(getString(R.string.fighter_key), fighter)
+    override fun onItemClick(item: Any) {
+        val intent = when (item) {
+            is Fighter -> {
+                Intent(requireContext(), FighterDetailActivity::class.java).apply {
+                    putExtra(getString(R.string.fighter_key), item)
+                }
+            }
+            is Coach -> {
+                Intent(requireContext(), CoachDetailActivity::class.java).apply {
+                    putExtra(getString(R.string.coach_key), item)
+                }
+            }
+            else -> null
         }
+
         startActivity(intent)
     }
 

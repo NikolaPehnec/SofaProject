@@ -49,13 +49,13 @@
     <string name="stance_label">Gard:</string>
     <string name="fighting_style_label">Stil borbe:</string>
     <string name="win_draw_lose_label">Pob-Ner-Por:</string>
+    <string name="coach_speciality_label">Specijalnost trenera:</string>
 
     <string name="fighter_img_desc">Borbeni udarac slika</string>
     <string name="fighting_style">Stil borbe</string>
     <string name="fighter_name">%1$s %2$s</string>
     <string name="fighter_score">%1$s-%2$s-%3$s</string>
-    <string name="fighter_key">fighter_id</string>
-    <string name="coach">Coach</string>
+    <string name="coach">Trener</string>
     <string name="coach_image">Trener slika</string>
 
     <string name="settings_title">Postavke</string>

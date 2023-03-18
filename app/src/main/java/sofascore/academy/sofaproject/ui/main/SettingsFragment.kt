@@ -52,16 +52,16 @@ class SettingsFragment : PreferenceFragmentCompat() {
     }
 
     private fun changeLocalization(language: String) {
-        var appLocale: LocaleListCompat? = null
-        when (language) {
+        val appLocale = when (language) {
             //English
             resources.getStringArray(R.array.languages)[0] -> {
-                appLocale = LocaleListCompat.forLanguageTags("en")
+                LocaleListCompat.forLanguageTags("en")
             }
             //Croatian
             resources.getStringArray(R.array.languages)[1] -> {
-                appLocale = LocaleListCompat.forLanguageTags("hr")
+                LocaleListCompat.forLanguageTags("hr")
             }
+            else -> null
         }
 
         appLocale?.let {

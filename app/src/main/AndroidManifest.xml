@@ -23,6 +23,13 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".ui.main.CoachDetailActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".BottomNavigationActivity"
             android:exported="true">
             <intent-filter>
