@@ -1,4 +1,4 @@
-package sofascore.academy.sofaproject.ui.main
+package sofascore.academy.sofaproject.view.fragments
 
 import android.content.Context.MODE_PRIVATE
 import android.os.Bundle
@@ -31,7 +31,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
         val themePreference =
             preferenceManager.findPreference<SwitchPreferenceCompat>(getString(R.string.dark_theme_pref_key))
 
-        //Setting current language selected
+        // Setting current language selected
         when (AppCompatDelegate.getApplicationLocales().toLanguageTags()) {
             "en" -> languageListPreference?.setValueIndex(0)
             "hr" -> languageListPreference?.setValueIndex(1)
@@ -53,11 +53,11 @@ class SettingsFragment : PreferenceFragmentCompat() {
 
     private fun changeLocalization(language: String) {
         val appLocale = when (language) {
-            //English
+            // English
             resources.getStringArray(R.array.languages)[0] -> {
                 LocaleListCompat.forLanguageTags("en")
             }
-            //Croatian
+            // Croatian
             resources.getStringArray(R.array.languages)[1] -> {
                 LocaleListCompat.forLanguageTags("hr")
             }
@@ -84,5 +84,4 @@ class SettingsFragment : PreferenceFragmentCompat() {
 
         editor?.apply()
     }
-
 }

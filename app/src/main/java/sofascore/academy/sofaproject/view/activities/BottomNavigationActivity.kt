@@ -1,4 +1,4 @@
-package sofascore.academy.sofaproject
+package sofascore.academy.sofaproject.view.activities
 
 import android.os.Build
 import android.os.Bundle
@@ -8,8 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+import sofascore.academy.sofaproject.R
 import sofascore.academy.sofaproject.databinding.ActivityBottomNavigationBinding
-
 
 // testing
 class BottomNavigationActivity : AppCompatActivity() {
@@ -31,7 +31,7 @@ class BottomNavigationActivity : AppCompatActivity() {
 
     private fun setupUI() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            //No option to dim the status bar?
+            // No option to dim the status bar?
             window.decorView.windowInsetsController?.apply {
                 setSystemBarsAppearance(
                     WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS,

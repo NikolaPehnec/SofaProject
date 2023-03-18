@@ -1,4 +1,4 @@
-package sofascore.academy.sofaproject.utils
+package sofascore.academy.sofaproject.utils.customviews
 
 import android.content.Context
 import android.util.AttributeSet

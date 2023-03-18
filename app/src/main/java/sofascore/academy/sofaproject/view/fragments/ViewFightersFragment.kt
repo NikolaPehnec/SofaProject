@@ -1,4 +1,4 @@
-package sofascore.academy.sofaproject.ui.main
+package sofascore.academy.sofaproject.view.fragments
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,10 +9,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import sofascore.academy.sofaproject.R
-import sofascore.academy.sofaproject.adapters.FighterRecyclerAdapter
 import sofascore.academy.sofaproject.data.Coach
 import sofascore.academy.sofaproject.data.Fighter
 import sofascore.academy.sofaproject.databinding.FragmentViewFightersBinding
+import sofascore.academy.sofaproject.view.activities.CoachDetailActivity
+import sofascore.academy.sofaproject.view.activities.FighterDetailActivity
+import sofascore.academy.sofaproject.view.adapters.FighterRecyclerAdapter
+import sofascore.academy.sofaproject.viewmodel.FighterViewModel
 
 class ViewFightersFragment : Fragment(), FighterRecyclerAdapter.OnItemClickListener, MenuProvider {
     private val peopleViewModel: FighterViewModel by activityViewModels()

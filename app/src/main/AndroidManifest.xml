@@ -16,21 +16,21 @@
         android:theme="@style/Theme.SofaProject"
         tools:targetApi="tiramisu">
         <activity
-            android:name=".ui.main.FighterDetailActivity"
+            android:name=".view.activities.FighterDetailActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".ui.main.CoachDetailActivity"
+            android:name=".view.activities.CoachDetailActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".BottomNavigationActivity"
+            android:name=".view.activities.BottomNavigationActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

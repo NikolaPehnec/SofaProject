@@ -1,4 +1,4 @@
-package sofascore.academy.sofaproject.ui.main
+package sofascore.academy.sofaproject.view.activities
 
 import android.os.Build
 import android.os.Bundle
@@ -23,7 +23,8 @@ class FighterDetailActivity : AppCompatActivity() {
 
         fighter = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             intent.getSerializableExtra(
-                getString(R.string.fighter_key), Fighter::class.java
+                getString(R.string.fighter_key),
+                Fighter::class.java
             )
         } else {
             intent.getSerializableExtra(getString(R.string.fighter_key)) as Fighter?

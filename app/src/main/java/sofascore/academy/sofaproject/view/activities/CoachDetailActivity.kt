@@ -1,4 +1,4 @@
-package sofascore.academy.sofaproject.ui.main
+package sofascore.academy.sofaproject.view.activities
 
 import android.os.Build
 import android.os.Bundle
@@ -23,7 +23,8 @@ class CoachDetailActivity : AppCompatActivity() {
 
         coach = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             intent.getSerializableExtra(
-                getString(R.string.coach_key), Coach::class.java
+                getString(R.string.coach_key),
+                Coach::class.java
             )
         } else {
             intent.getSerializableExtra(getString(R.string.coach_key)) as Coach?

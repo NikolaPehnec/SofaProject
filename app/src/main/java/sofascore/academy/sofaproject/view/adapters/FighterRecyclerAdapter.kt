@@ -1,4 +1,4 @@
-package sofascore.academy.sofaproject.adapters
+package sofascore.academy.sofaproject.view.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -123,5 +123,4 @@ class FighterRecyclerAdapter(
             }
         }
     }
-
 }

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.main.NewFighterFragment">
+    tools:context=".view.fragments.NewFighterFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -27,7 +27,7 @@
                 android:orientation="vertical"
                 android:paddingBottom="@dimen/scrollview_padding_bottom">
 
-                <sofascore.academy.sofaproject.utils.TextLayoutAndEditText
+                <sofascore.academy.sofaproject.utils.customviews.TextLayoutAndEditText
                     android:id="@+id/first_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
                     app:maxNumberOfCharacters="50"
                     app:minNumberOfCharacters="2" />
 
-                <sofascore.academy.sofaproject.utils.TextLayoutAndEditText
+                <sofascore.academy.sofaproject.utils.customviews.TextLayoutAndEditText
                     android:id="@+id/last_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -46,7 +46,7 @@
                     app:minNumberOfCharacters="2" />
 
 
-                <sofascore.academy.sofaproject.utils.TextLayoutAndEditText
+                <sofascore.academy.sofaproject.utils.customviews.TextLayoutAndEditText
                     android:id="@+id/nickname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -55,7 +55,7 @@
                     app:maxNumberOfCharacters="50"
                     app:minNumberOfCharacters="1" />
 
-                <sofascore.academy.sofaproject.utils.TextLayoutAndEditText
+                <sofascore.academy.sofaproject.utils.customviews.TextLayoutAndEditText
                     android:id="@+id/height"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -64,7 +64,7 @@
                     app:maxIntValue="250"
                     app:minIntValue="50" />
 
-                <sofascore.academy.sofaproject.utils.TextLayoutAndEditText
+                <sofascore.academy.sofaproject.utils.customviews.TextLayoutAndEditText
                     android:id="@+id/weight"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -73,7 +73,7 @@
                     app:maxIntValue="300"
                     app:minIntValue="40" />
 
-                <sofascore.academy.sofaproject.utils.TextLayoutAndEditText
+                <sofascore.academy.sofaproject.utils.customviews.TextLayoutAndEditText
                     android:id="@+id/reach"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -82,7 +82,7 @@
                     app:maxIntValue="300"
                     app:minIntValue="70" />
 
-                <sofascore.academy.sofaproject.utils.TextLayoutAndDropdownMenu
+                <sofascore.academy.sofaproject.utils.customviews.TextLayoutAndDropdownMenu
                     android:id="@+id/stance_dropdown_menu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -134,7 +134,7 @@
                     </RadioGroup>
                 </LinearLayout>
 
-                <sofascore.academy.sofaproject.utils.TextLayoutAndEditText
+                <sofascore.academy.sofaproject.utils.customviews.TextLayoutAndEditText
                     android:id="@+id/win"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -142,7 +142,7 @@
                     app:inputType="number"
                     app:maxIntValue="200" />
 
-                <sofascore.academy.sofaproject.utils.TextLayoutAndEditText
+                <sofascore.academy.sofaproject.utils.customviews.TextLayoutAndEditText
                     android:id="@+id/lose"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -151,7 +151,7 @@
                     app:maxIntValue="200" />
 
 
-                <sofascore.academy.sofaproject.utils.TextLayoutAndEditText
+                <sofascore.academy.sofaproject.utils.customviews.TextLayoutAndEditText
                     android:id="@+id/draw"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

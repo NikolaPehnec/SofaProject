@@ -19,6 +19,6 @@ data class Fighter(
 ) : java.io.Serializable {
     override fun toString(): String {
         return "$firstName, $lastName, $nickname, $height, $weight, $reach, ${stance.stanceName}," +
-                " ${fightingStyle.styleName}, $win, $lose, $draw"
+            " ${fightingStyle.styleName}, $win, $lose, $draw"
     }
 }

@@ -1,4 +1,4 @@
-package sofascore.academy.sofaproject.ui.main
+package sofascore.academy.sofaproject.view.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -16,7 +16,8 @@ import sofascore.academy.sofaproject.data.Fighter
 import sofascore.academy.sofaproject.data.FightingStyle
 import sofascore.academy.sofaproject.data.Stance
 import sofascore.academy.sofaproject.databinding.FragmentNewFighterBinding
-import sofascore.academy.sofaproject.utils.TextLayoutAndEditText
+import sofascore.academy.sofaproject.utils.customviews.TextLayoutAndEditText
+import sofascore.academy.sofaproject.viewmodel.FighterViewModel
 import java.net.URL
 
 class NewFighterFragment : Fragment() {
