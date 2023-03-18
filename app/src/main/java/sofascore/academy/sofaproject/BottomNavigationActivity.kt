@@ -1,7 +1,9 @@
 package sofascore.academy.sofaproject
 
+import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.view.WindowInsetsController
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.findNavController
@@ -28,7 +30,19 @@ class BottomNavigationActivity : AppCompatActivity() {
     }
 
     private fun setupUI() {
-        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LOW_PROFILE
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            //No option to dim the status bar?
+            window.decorView.windowInsetsController?.apply {
+                setSystemBarsAppearance(
+                    WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS,
+                    WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS
+                )
+            }
+        } else {
+            // Deprecated method for older API versions
+            window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LOW_PROFILE
+        }
+
         val sharedPreferences =
             getSharedPreferences(getString(R.string.shared_pref_name), MODE_PRIVATE)
         val isNightMode =
