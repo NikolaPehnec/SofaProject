@@ -71,10 +71,14 @@
 
     <!-- Preferences  -->
     <string name="language_pref_title">App language</string>
-    <string name="language_pref_key">language_pref</string>
-    <string name="language_pref_default">English</string>
+    <string name="language_pref_key" translatable="false">language_pref</string>
     <string name="localization">Localization</string>
-    <string name="croatian">Croatian</string>
+    <string name="theme">Theme</string>
+    <string name="dark_theme">Dark theme</string>
+    <string name="dark_theme_pref_key" translatable="false">dark_theme_pref</string>
+
+    <string name="shared_pref_name" translatable="false">pref</string>
+    <string name="shared_pref_dark_mode" translatable="false">dark_mode</string>
 
     <string-array name="languages">
         <item>English</item>

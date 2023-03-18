@@ -2,15 +2,66 @@
     <!-- Base application theme. -->
     <style name="Theme.SofaProject" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
+        <item name="colorPrimary">@color/black</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
+        <item name="colorSecondary">@color/white</item>
+        <item name="colorSecondaryVariant">@color/white</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+        <item name="backgroundColor">@color/white</item>
+        <item name="android:statusBarColor">@color/black</item>
+        <item name="fontFamily">@font/montserrat_family</item>
+    </style>
+
+    <style name="Theme.SofaProject.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.SofaProject.Titles">
+        <item name="android:textSize">26sp</item>
+        <item name="android:textColor">@color/blue</item>
+        <item name="android:textAlignment">center</item>
+        <item name="fontFamily">@font/montserrat_family</item>
+    </style>
+
+    <style name="Theme.SofaProject.ExpandedTitles">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/light_blue</item>
+        <item name="android:textAlignment">textStart</item>
+        <item name="fontFamily">@font/montserrat_family</item>
+    </style>
+
+    <style name="Theme.SofaProject.FighterText">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAlignment">center</item>
+        <item name="fontFamily">@font/montserrat_family</item>
+    </style>
+
+
+    <style name="Theme.SofaProject.FighterTextLarge" parent="Theme.SofaProject.FighterText">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@android:color/tab_indicator_text</item>
+    </style>
+
+    <style name="Theme.SofaProject.FighterTextMediumEmphasized" parent="Theme.SofaProject.FighterText">
+        <item name="android:textColor">@color/blue</item>
+        <item name="android:textSize">20sp</item>
+
+    </style>
+
+    <style name="Theme.SofaProject.PopupMenuStyle" parent="Theme.AppCompat.Light">
+        <item name="android:background">@color/cardview_dark_background</item>
+        <item name="android:textColorPrimary">@color/white</item>
+    </style>
+
+    <style name="Theme.SofaProject.CustomToolbarTheme">
+        <item name="android:actionMenuTextColor">@color/white</item>
+        <item name="android:textColorSecondary">@color/white</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:background">@color/blue</item>
     </style>
 </resources>

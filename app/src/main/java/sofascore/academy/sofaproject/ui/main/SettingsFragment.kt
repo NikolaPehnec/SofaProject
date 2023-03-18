@@ -1,5 +1,6 @@
 package sofascore.academy.sofaproject.ui.main
 
+import android.content.Context.MODE_PRIVATE
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import androidx.core.os.LocaleListCompat
 import androidx.preference.ListPreference
 import androidx.preference.Preference.OnPreferenceChangeListener
 import androidx.preference.PreferenceFragmentCompat
+import androidx.preference.SwitchPreferenceCompat
 import sofascore.academy.sofaproject.R
 
 class SettingsFragment : PreferenceFragmentCompat() {
@@ -24,11 +26,13 @@ class SettingsFragment : PreferenceFragmentCompat() {
     ): View {
         activity?.title = getString(R.string.settings_title)
 
-        //Setting current language selected
-        val defaultLang = AppCompatDelegate.getApplicationLocales().toLanguageTags()
         val languageListPreference =
             preferenceManager.findPreference<ListPreference>(getString(R.string.language_pref_key))
-        when (defaultLang) {
+        val themePreference =
+            preferenceManager.findPreference<SwitchPreferenceCompat>(getString(R.string.dark_theme_pref_key))
+
+        //Setting current language selected
+        when (AppCompatDelegate.getApplicationLocales().toLanguageTags()) {
             "en" -> languageListPreference?.setValueIndex(0)
             "hr" -> languageListPreference?.setValueIndex(1)
         }
@@ -36,6 +40,11 @@ class SettingsFragment : PreferenceFragmentCompat() {
         languageListPreference?.onPreferenceChangeListener =
             OnPreferenceChangeListener { _, newValue ->
                 changeLocalization(newValue.toString())
+                true
+            }
+        themePreference?.onPreferenceChangeListener =
+            OnPreferenceChangeListener { _, newValue ->
+                changeTheme(newValue as Boolean)
                 true
             }
 
@@ -58,6 +67,22 @@ class SettingsFragment : PreferenceFragmentCompat() {
         appLocale?.let {
             AppCompatDelegate.setApplicationLocales(appLocale)
         }
+    }
+
+    private fun changeTheme(darkTheme: Boolean) {
+        val editor =
+            activity?.getSharedPreferences(getString(R.string.shared_pref_name), MODE_PRIVATE)
+                ?.edit()
+
+        if (darkTheme) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            editor?.putBoolean(getString(R.string.shared_pref_dark_mode), true)
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            editor?.putBoolean(getString(R.string.shared_pref_dark_mode), false)
+        }
+
+        editor?.apply()
     }
 
 }

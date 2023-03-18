@@ -8,7 +8,7 @@
     android:clickable="true"
     android:focusable="true"
     android:foreground="?android:attr/selectableItemBackground"
-    app:cardBackgroundColor="@color/light_blue"
+    android:theme="@style/Theme.SofaProject"
     app:cardCornerRadius="8dp"
     app:cardElevation="8dp">
 
@@ -20,9 +20,9 @@
             android:id="@+id/coach_image"
             android:layout_width="72dp"
             android:layout_height="72dp"
+            android:contentDescription="@string/coach_image"
             android:cropToPadding="true"
             android:scaleType="centerCrop"
-            android:contentDescription="@string/coach_image"
             android:src="@drawable/person_placeholder"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"

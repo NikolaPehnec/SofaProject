@@ -47,7 +47,7 @@
     <string name="height_label">Visina (cm):</string>
     <string name="reach_label">Doseg (cm):</string>
     <string name="stance_label">Gard:</string>
-    <string name="win_draw_lose_label">Pobjeda-Neriješeno-Poraz:</string>
+    <string name="win_draw_lose_label">Pob-N-Por:</string>
 
     <string-array name="stances">
         <item> Ortodoksni</item>
@@ -71,10 +71,9 @@
 
     <!-- Preferences  -->
     <string name="language_pref_title">Jezik aplikacije</string>
-    <string name="language_pref_key">language_pref</string>
-    <string name="language_pref_default">English</string>
     <string name="localization">Lokalizacija</string>
-    <string name="croatian">Hrvatski</string>
+    <string name="theme">Tema</string>
+    <string name="dark_theme">Tamna tema</string>
 
     <string-array name="languages">
         <item>Engleski</item>

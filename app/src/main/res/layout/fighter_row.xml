@@ -8,7 +8,7 @@
     android:clickable="true"
     android:focusable="true"
     android:foreground="?android:attr/selectableItemBackground"
-    app:cardBackgroundColor="@color/white"
+    android:theme="@style/Theme.SofaProject"
     app:cardCornerRadius="8dp"
     app:cardElevation="8dp">
 

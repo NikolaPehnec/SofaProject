@@ -11,15 +11,12 @@
 
     </PreferenceCategory>
 
-    <PreferenceCategory app:title="Theme">
+    <PreferenceCategory app:title="@string/theme">
 
-        <!--  <ListPreference
-              app:defaultValue="English"
-              app:entries="@array/languages"
-              app:entryValues="@array/languages"
-              app:key="language"
-              app:title="Languages"
-              app:useSimpleSummaryProvider="true" />-->
+        <SwitchPreferenceCompat
+            app:key="@string/dark_theme_pref_key"
+            app:title="@string/dark_theme"
+            app:useSimpleSummaryProvider="true" />
     </PreferenceCategory>
 
 </PreferenceScreen>
