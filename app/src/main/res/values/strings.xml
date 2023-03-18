@@ -47,9 +47,10 @@
     <string name="height_label">Height (cm):</string>
     <string name="reach_label">Reach (cm):</string>
     <string name="stance_label">Stance:</string>
+    <string name="fighting_style_label">Fighting style:</string>
     <string name="win_draw_lose_label">Win-Draw-Lose:</string>
 
-    <string-array name="stances">
+    <string-array name="stances" translatable="false">
         <item> Orthodox</item>
         <item> Southpaw</item>
         <item> Switch</item>
@@ -57,9 +58,9 @@
 
     <string name="fighter_img_desc">Fighter kick image</string>
     <string name="fighting_style">Style of fighting</string>
-    <string name="rb_striker">Striker</string>
-    <string name="rb_grappler">Grappler</string>
-    <string name="rb_all_rounder">All rounder</string>
+    <string name="rb_striker" translatable="false">Striker</string>
+    <string name="rb_grappler" translatable="false">Grappler</string>
+    <string name="rb_all_rounder" translatable="false">All rounder</string>
     <string name="fighter_name">%1$s %2$s</string>
     <string name="fighter_score">%1$s-%2$s-%3$s</string>
     <string name="fighter_key">fighter_id</string>

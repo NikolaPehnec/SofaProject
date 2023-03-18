@@ -41,25 +41,17 @@
     <string name="validation_exception">Broj znakova i numericke vrijednosti parametara ne mogu biti manje od 0!</string>
 
     <string name="view_fighters_title">Borci</string>
-    <string name="name_label">Ime i prezime: </string>
+    <string name="name_label">Ime: </string>
     <string name="nickname_label">Nadimak:</string>
     <string name="weight_label">Težina (kg):</string>
     <string name="height_label">Visina (cm):</string>
     <string name="reach_label">Doseg (cm):</string>
     <string name="stance_label">Gard:</string>
-    <string name="win_draw_lose_label">Pob-N-Por:</string>
-
-    <string-array name="stances">
-        <item> Ortodoksni</item>
-        <item> Kontraš</item>
-        <item> Oboje</item>
-    </string-array>
+    <string name="fighting_style_label">Stil borbe:</string>
+    <string name="win_draw_lose_label">Pob-Ner-Por:</string>
 
     <string name="fighter_img_desc">Borbeni udarac slika</string>
     <string name="fighting_style">Stil borbe</string>
-    <string name="rb_striker">Udarač</string>
-    <string name="rb_grappler">Grappler</string>
-    <string name="rb_all_rounder">Svestran</string>
     <string name="fighter_name">%1$s %2$s</string>
     <string name="fighter_score">%1$s-%2$s-%3$s</string>
     <string name="fighter_key">fighter_id</string>

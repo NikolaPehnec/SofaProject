@@ -40,7 +40,7 @@ class NewFighterFragment : Fragment() {
 
         val adapter = ArrayAdapter(
             requireContext(),
-            R.layout.list_item,
+            android.R.layout.simple_list_item_1,
             Stance.values().map { it.stanceName }.toTypedArray()
         )
         binding.stanceDropdownMenu.setStringArrayAdapter(adapter)

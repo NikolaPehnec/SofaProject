@@ -49,8 +49,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/activity_horizontal_margin_small"
-            android:theme="@style/Theme.SofaProject.FighterTextMediumEmphasized"
             android:textAlignment="textStart"
+            android:theme="@style/Theme.SofaProject.FighterTextMediumEmphasized"
             app:layout_constraintBottom_toBottomOf="@+id/nickname_label"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0"
@@ -143,14 +143,35 @@
             tools:text="Orthodox" />
 
         <TextView
+            android:id="@+id/fighting_style_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin_large"
+            android:text="@string/fighting_style_label"
+            android:theme="@style/Theme.SofaProject.FighterTextLarge"
+            app:layout_constraintStart_toStartOf="@+id/stance_label"
+            app:layout_constraintTop_toBottomOf="@+id/stance_label" />
+
+        <TextView
+            android:id="@+id/fighting_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_horizontal_margin_small"
+            android:theme="@style/Theme.SofaProject.FighterTextMediumEmphasized"
+            app:layout_constraintBottom_toBottomOf="@+id/fighting_style_label"
+            app:layout_constraintStart_toEndOf="@+id/fighting_style_label"
+            app:layout_constraintTop_toTopOf="@+id/fighting_style_label"
+            tools:text="Striker" />
+
+        <TextView
             android:id="@+id/win_draw_lose_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/activity_vertical_margin_large"
             android:text="@string/win_draw_lose_label"
             android:theme="@style/Theme.SofaProject.FighterTextLarge"
-            app:layout_constraintStart_toStartOf="@+id/stance_label"
-            app:layout_constraintTop_toBottomOf="@+id/stance_label" />
+            app:layout_constraintStart_toStartOf="@+id/fighting_style_label"
+            app:layout_constraintTop_toBottomOf="@+id/fighting_style_label" />
 
         <TextView
             android:id="@+id/win_draw_lose"
