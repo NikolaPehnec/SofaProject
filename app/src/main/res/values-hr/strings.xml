@@ -66,6 +66,7 @@
     <string name="localization">Lokalizacija</string>
     <string name="theme">Tema</string>
     <string name="dark_theme">Tamna tema</string>
+    <string name="add">dodaj</string>
 
     <string-array name="languages">
         <item>Engleski</item>

@@ -57,6 +57,11 @@ class ViewFightersFragment : Fragment(), FighterRecyclerAdapter.OnItemClickListe
         val menuHost: MenuHost = requireActivity()
         menuHost.addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
 
+        binding.addFab.setOnClickListener {
+            val bottomSheetFragment = NewFighterDialogFragment()
+            bottomSheetFragment.show(requireActivity().supportFragmentManager, bottomSheetFragment.tag)
+        }
+
         return binding.root
     }
 

@@ -1,5 +1,6 @@
 package sofascore.academy.sofaproject.view.fragments
 
+import android.R
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,30 +9,35 @@ import android.widget.ArrayAdapter
 import android.widget.RadioButton
 import android.widget.Toast
 import androidx.core.view.children
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.snackbar.Snackbar
-import sofascore.academy.sofaproject.R
 import sofascore.academy.sofaproject.data.Fighter
 import sofascore.academy.sofaproject.data.FightingStyle
 import sofascore.academy.sofaproject.data.Stance
-import sofascore.academy.sofaproject.databinding.FragmentNewFighterBinding
+import sofascore.academy.sofaproject.databinding.NewFighterBottomSheetBinding
 import sofascore.academy.sofaproject.utils.customviews.TextLayoutAndEditText
 import sofascore.academy.sofaproject.viewmodel.FighterViewModel
 import java.net.URL
 
-class NewFighterFragment : Fragment() {
-    private val fighterViewModel: FighterViewModel by activityViewModels()
-    private var _binding: FragmentNewFighterBinding? = null
+// Layout and methods copied from NewFighterFragment
+
+class NewFighterDialogFragment : BottomSheetDialogFragment() {
+    private var _binding: NewFighterBottomSheetBinding? = null
     private val binding get() = _binding!!
+    private val fighterViewModel: FighterViewModel by activityViewModels()
     private val textFields = mutableListOf<TextLayoutAndEditText>()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentNewFighterBinding.inflate(inflater, container, false)
+        _binding = NewFighterBottomSheetBinding.inflate(inflater, container, false)
 
         textFields.clear()
         binding.newFighterLinearLayout.children.filterIsInstance(TextLayoutAndEditText::class.java)
@@ -41,21 +47,16 @@ class NewFighterFragment : Fragment() {
 
         val adapter = ArrayAdapter(
             requireContext(),
-            android.R.layout.simple_list_item_1,
+            R.layout.simple_list_item_1,
             Stance.values().map { it.stanceName }.toTypedArray()
         )
         binding.stanceDropdownMenu.setStringArrayAdapter(adapter)
-        activity?.title = getString(R.string.new_fighter_title)
 
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        binding.addFab.setOnClickListener {
+        binding.addButon.setOnClickListener {
             addNewPerson()
         }
+
+        return binding.root
     }
 
     private fun addNewPerson() {
@@ -81,7 +82,7 @@ class NewFighterFragment : Fragment() {
             )
 
             showSuccessNotification()
-            clearFields()
+            this.dismiss()
         } else {
             showErrorNotification()
         }
@@ -102,30 +103,19 @@ class NewFighterFragment : Fragment() {
         return validated
     }
 
-    fun showSuccessNotification() {
-        Snackbar.make(binding.root, getString(R.string.add_fighter_success), Snackbar.LENGTH_SHORT)
-            .show()
-    }
-
-    fun showErrorNotification() {
-        Toast.makeText(
-            requireContext(),
-            getString(R.string.add_fighter_error),
-            Toast.LENGTH_SHORT
+    private fun showSuccessNotification() {
+        Snackbar.make(
+            binding.root,
+            getString(sofascore.academy.sofaproject.R.string.add_fighter_success),
+            Snackbar.LENGTH_SHORT
         ).show()
     }
 
-    private fun clearFields() {
-        textFields.forEach {
-            it.clearText()
-        }
-
-        binding.stanceDropdownMenu.clearText()
-        binding.firstName.requestFocus()
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    private fun showErrorNotification() {
+        Toast.makeText(
+            requireContext(),
+            getString(sofascore.academy.sofaproject.R.string.add_fighter_error),
+            Toast.LENGTH_SHORT
+        ).show()
     }
 }

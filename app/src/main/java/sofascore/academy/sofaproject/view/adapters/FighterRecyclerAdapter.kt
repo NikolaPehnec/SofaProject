@@ -56,7 +56,11 @@ class FighterRecyclerAdapter(
     fun getNumberOfItems(): Int = items.size
 
     fun addItems(newItems: List<Any>) {
-        items.addAll(newItems)
+        for (item in newItems) {
+            if (!items.contains(item)) {
+                items.add(item)
+            }
+        }
         notifyDataSetChanged()
     }
 
@@ -97,7 +101,7 @@ class FighterRecyclerAdapter(
             ImageLoader.Builder(context).build().enqueue(imgRequest)
 
             binding.root.setOnClickListener {
-                listener.onItemClick(items[adapterPosition] as Fighter)
+                listener.onItemClick(items[bindingAdapterPosition] as Fighter)
             }
         }
     }
@@ -119,7 +123,7 @@ class FighterRecyclerAdapter(
             ImageLoader.Builder(context).build().enqueue(imgRequest)
 
             binding.root.setOnClickListener {
-                listener.onItemClick(items[adapterPosition] as Coach)
+                listener.onItemClick(items[bindingAdapterPosition] as Coach)
             }
         }
     }

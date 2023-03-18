@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.fragments.ViewFightersFragment">
-
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/fighters_recycler_view"
@@ -13,7 +12,8 @@
         android:layout_height="match_parent"
         android:layout_marginHorizontal="@dimen/activity_horizontal_margin_small"
         android:layout_marginTop="@dimen/activity_vertical_margin_small"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/no_data_animation"
@@ -24,4 +24,21 @@
         app:lottie_autoPlay="false"
         app:lottie_loop="false"
         app:lottie_rawRes="@raw/no_data_animation" />
-</FrameLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addFab"
+        style="@style/Widget.MaterialComponents.FloatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/activity_vertical_margin"
+        android:backgroundTint="@color/blue"
+        android:backgroundTintMode="add"
+        android:contentDescription="@string/fab_add_person_desc"
+        android:elevation="16dp"
+        app:borderWidth="0dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:srcCompat="@drawable/ic_baseline_add_24"
+        app:tint="@color/white" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

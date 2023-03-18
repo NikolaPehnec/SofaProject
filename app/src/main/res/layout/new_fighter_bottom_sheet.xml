@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottom_sheet"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    app:behavior_hideable="false"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+    <LinearLayout
+        android:id="@+id/new_fighter_linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/activity_horizontal_margin_small"
+        android:orientation="vertical">
+
+        <sofascore.academy.sofaproject.utils.customviews.TextLayoutAndEditText
+            android:id="@+id/first_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hint="@string/first_name_hint"
+            app:inputType="textCapWords"
+            app:maxNumberOfCharacters="50"
+            app:minNumberOfCharacters="2" />
+
+        <sofascore.academy.sofaproject.utils.customviews.TextLayoutAndEditText
+            android:id="@+id/last_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hint="@string/last_name_hint"
+            app:inputType="textCapWords"
+            app:maxNumberOfCharacters="50"
+            app:minNumberOfCharacters="2" />
+
+
+        <sofascore.academy.sofaproject.utils.customviews.TextLayoutAndEditText
+            android:id="@+id/nickname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hint="@string/nickname_hint"
+            app:inputType="textCapWords"
+            app:maxNumberOfCharacters="50"
+            app:minNumberOfCharacters="1" />
+
+        <sofascore.academy.sofaproject.utils.customviews.TextLayoutAndEditText
+            android:id="@+id/height"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hint="@string/height_hint"
+            app:inputType="number"
+            app:maxIntValue="250"
+            app:minIntValue="50" />
+
+        <sofascore.academy.sofaproject.utils.customviews.TextLayoutAndEditText
+            android:id="@+id/weight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hint="@string/weight_hint"
+            app:inputType="numberDecimal"
+            app:maxIntValue="300"
+            app:minIntValue="40" />
+
+        <sofascore.academy.sofaproject.utils.customviews.TextLayoutAndEditText
+            android:id="@+id/reach"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hint="@string/reach_hint"
+            app:inputType="numberDecimal"
+            app:maxIntValue="300"
+            app:minIntValue="70" />
+
+        <sofascore.academy.sofaproject.utils.customviews.TextLayoutAndDropdownMenu
+            android:id="@+id/stance_dropdown_menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hint="@string/stance_hint" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="16dp"
+                android:layout_weight="1"
+                android:text="@string/fighting_style"
+                android:textSize="16sp" />
+
+            <RadioGroup
+                android:id="@+id/radioGroupFightingStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checkedButton="@id/rb_striker">
+
+                <RadioButton
+                    android:id="@+id/rb_striker"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:buttonTint="@color/blue"
+                    android:text="@string/rb_striker"
+                    app:useMaterialThemeColors="true" />
+
+                <RadioButton
+                    android:id="@+id/rb_grappler"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:buttonTint="@color/blue"
+                    android:text="@string/rb_grappler" />
+
+                <RadioButton
+                    android:id="@+id/rb_allrounder"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:buttonTint="@color/blue"
+                    android:text="@string/rb_all_rounder" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <sofascore.academy.sofaproject.utils.customviews.TextLayoutAndEditText
+            android:id="@+id/win"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hint="@string/win_hint"
+            app:inputType="number"
+            app:maxIntValue="200" />
+
+        <sofascore.academy.sofaproject.utils.customviews.TextLayoutAndEditText
+            android:id="@+id/lose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hint="@string/lose_hint"
+            app:inputType="number"
+            app:maxIntValue="200" />
+
+
+        <sofascore.academy.sofaproject.utils.customviews.TextLayoutAndEditText
+            android:id="@+id/draw"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hint="@string/draw_hint"
+            app:inputType="number"
+            app:maxIntValue="200" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/addButon"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/blue"
+            android:textColor="@color/white"
+            android:text="@string/add" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>
