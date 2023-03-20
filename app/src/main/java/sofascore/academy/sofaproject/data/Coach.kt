@@ -1,5 +1,7 @@
 package sofascore.academy.sofaproject.data
 
+import android.content.Context
+import sofascore.academy.sofaproject.R
 import java.net.URL
 
 data class Coach(
@@ -12,4 +14,9 @@ data class Coach(
     override fun toString(): String {
         return "$firstName, $lastName, $speciality"
     }
+
+    fun getDataAsList(context: Context) = arrayOf(
+        context.resources.getString(R.string.fighter_name, firstName, lastName),
+        speciality
+    )
 }

@@ -6,13 +6,16 @@ import androidx.appcompat.app.AppCompatActivity
 import coil.ImageLoader
 import coil.request.ImageRequest
 import sofascore.academy.sofaproject.R
+import sofascore.academy.sofaproject.data.Coach
 import sofascore.academy.sofaproject.data.Fighter
 import sofascore.academy.sofaproject.databinding.ActivityFighterDetailBinding
+import sofascore.academy.sofaproject.view.adapters.DetailRecyclerAdapter
 
 class FighterDetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFighterDetailBinding
 
     var fighter: Fighter? = null
+    var coach: Coach? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +33,21 @@ class FighterDetailActivity : AppCompatActivity() {
             intent.getSerializableExtra(getString(R.string.fighter_key)) as Fighter?
         }
 
-        fillFighterData()
+        coach = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            intent.getSerializableExtra(
+                getString(R.string.coach_key),
+                Coach::class.java
+            )
+        } else {
+            intent.getSerializableExtra(getString(R.string.coach_key)) as Coach?
+        }
+
+        fighter?.let {
+            fillFighterData()
+        }
+        coach?.let {
+            fillCoachData()
+        }
     }
 
     private fun fillFighterData() {
@@ -45,17 +62,41 @@ class FighterDetailActivity : AppCompatActivity() {
             .build()
         ImageLoader.Builder(this).build().enqueue(imgRequest)
 
-        binding.fighterInfo.apply {
-            fighterName.text =
-                getString(R.string.fighter_name, fighter?.firstName, fighter?.lastName)
-            nickname.text = fighter?.nickname
-            height.text = fighter?.height
-            weight.text = fighter?.weight
-            reach.text = fighter?.reach
-            stance.text = fighter?.stance?.toString(this@FighterDetailActivity)
-            fightingStyle.text = fighter?.fightingStyle?.toString(this@FighterDetailActivity)
-            winDrawLose.text =
-                getString(R.string.fighter_score, fighter?.win, fighter?.draw, fighter?.lose)
-        }
+        val fighterDataAdapter = DetailRecyclerAdapter(
+            arrayOf(
+                getString(R.string.name_label),
+                getString(R.string.nickname_label),
+                getString(R.string.height_label),
+                getString(R.string.weight_label),
+                getString(R.string.reach_label),
+                getString(R.string.stance_label),
+                getString(R.string.fighting_style_label),
+                getString(R.string.win_draw_lose_label)
+            ), fighter!!.getDataAsList(this)
+        )
+
+        binding.fighterInfo.fighterInfoRecyclerView.adapter = fighterDataAdapter
+    }
+
+    private fun fillCoachData() {
+        binding.collapsingToolbarLayout.title =
+            getString(R.string.fighter_name, coach?.firstName, coach?.lastName)
+
+        val imgRequest = ImageRequest.Builder(this)
+            .data(coach?.imageUrl.toString())
+            .placeholder(R.drawable.person_placeholder)
+            .error(R.drawable.person_placeholder)
+            .target(binding.expandedImage)
+            .build()
+        ImageLoader.Builder(this).build().enqueue(imgRequest)
+
+        val coachDataAdapter = DetailRecyclerAdapter(
+            arrayOf(
+                getString(R.string.name_label),
+                getString(R.string.coach_speciality_label),
+            ), coach!!.getDataAsList(this)
+        )
+
+        binding.fighterInfo.fighterInfoRecyclerView.adapter = coachDataAdapter
     }
 }

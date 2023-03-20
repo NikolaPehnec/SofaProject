@@ -12,7 +12,6 @@ import sofascore.academy.sofaproject.R
 import sofascore.academy.sofaproject.data.Coach
 import sofascore.academy.sofaproject.data.Fighter
 import sofascore.academy.sofaproject.databinding.FragmentViewFightersBinding
-import sofascore.academy.sofaproject.view.activities.CoachDetailActivity
 import sofascore.academy.sofaproject.view.activities.FighterDetailActivity
 import sofascore.academy.sofaproject.view.adapters.FighterRecyclerAdapter
 import sofascore.academy.sofaproject.viewmodel.FighterViewModel
@@ -59,7 +58,10 @@ class ViewFightersFragment : Fragment(), FighterRecyclerAdapter.OnItemClickListe
 
         binding.addFab.setOnClickListener {
             val bottomSheetFragment = NewFighterDialogFragment()
-            bottomSheetFragment.show(requireActivity().supportFragmentManager, bottomSheetFragment.tag)
+            bottomSheetFragment.show(
+                requireActivity().supportFragmentManager,
+                bottomSheetFragment.tag
+            )
         }
 
         return binding.root
@@ -73,7 +75,7 @@ class ViewFightersFragment : Fragment(), FighterRecyclerAdapter.OnItemClickListe
                 }
             }
             is Coach -> {
-                Intent(requireContext(), CoachDetailActivity::class.java).apply {
+                Intent(requireContext(), FighterDetailActivity::class.java).apply {
                     putExtra(getString(R.string.coach_key), item)
                 }
             }
