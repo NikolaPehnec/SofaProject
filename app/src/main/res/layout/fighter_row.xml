@@ -28,6 +28,17 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/coach_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/coach"
+            android:visibility="invisible"
+            android:theme="@style/Theme.SofaProject.FighterText"
+            app:layout_constraintBottom_toTopOf="@+id/figter_name"
+            app:layout_constraintStart_toEndOf="@+id/figter_image" />
+
+        <TextView
             android:id="@+id/figter_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
