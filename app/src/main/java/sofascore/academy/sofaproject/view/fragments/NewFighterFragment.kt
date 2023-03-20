@@ -42,7 +42,7 @@ class NewFighterFragment : Fragment() {
         val adapter = ArrayAdapter(
             requireContext(),
             android.R.layout.simple_list_item_1,
-            Stance.values().map { it.stanceName }.toTypedArray()
+            resources.getStringArray(R.array.stances)
         )
         binding.stanceDropdownMenu.setStringArrayAdapter(adapter)
         activity?.title = getString(R.string.new_fighter_title)
@@ -71,8 +71,14 @@ class NewFighterFragment : Fragment() {
                     binding.height.getText(),
                     binding.weight.getText(),
                     binding.reach.getText(),
-                    Stance.fromString(binding.stanceDropdownMenu.getSelectedItemText())!!,
-                    FightingStyle.fromString(checkedRadioButton.text.toString())!!,
+                    Stance.fromString(
+                        requireContext(),
+                        binding.stanceDropdownMenu.getSelectedItemText()
+                    )!!,
+                    FightingStyle.fromString(
+                        requireContext(),
+                        checkedRadioButton.text.toString()
+                    )!!,
                     binding.win.getText(),
                     binding.lose.getText(),
                     binding.draw.getText(),

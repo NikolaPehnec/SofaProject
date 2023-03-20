@@ -51,6 +51,22 @@
     <string name="win_draw_lose_label">Pob-Ner-Por:</string>
     <string name="coach_speciality_label">Specijalnost trenera:</string>
 
+    <string-array name="stances">
+        <item> Ortodoksni</item>
+        <item> Kontra gard</item>
+        <item> Mješovit</item>
+    </string-array>
+
+    <string-array name="fighting_style_arr">
+        <item>Udarač</item>
+        <item>Grappler</item>
+        <item>Zaokruženi stil</item>
+    </string-array>
+
+    <string name="rb_striker">Udarač</string>
+    <string name="rb_grappler">Grappler</string>
+    <string name="rb_all_rounder">Zaokruženi stil</string>
+
     <string name="fighter_img_desc">Borbeni udarac slika</string>
     <string name="fighting_style">Stil borbe</string>
     <string name="fighter_name">%1$s %2$s</string>

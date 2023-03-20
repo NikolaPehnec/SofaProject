@@ -1,6 +1,5 @@
 package sofascore.academy.sofaproject.view.fragments
 
-import android.R
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +11,7 @@ import androidx.core.view.children
 import androidx.fragment.app.activityViewModels
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.snackbar.Snackbar
+import sofascore.academy.sofaproject.R
 import sofascore.academy.sofaproject.data.Fighter
 import sofascore.academy.sofaproject.data.FightingStyle
 import sofascore.academy.sofaproject.data.Stance
@@ -47,8 +47,8 @@ class NewFighterDialogFragment : BottomSheetDialogFragment() {
 
         val adapter = ArrayAdapter(
             requireContext(),
-            R.layout.simple_list_item_1,
-            Stance.values().map { it.stanceName }.toTypedArray()
+            android.R.layout.simple_list_item_1,
+            resources.getStringArray(R.array.stances)
         )
         binding.stanceDropdownMenu.setStringArrayAdapter(adapter)
 
@@ -72,8 +72,11 @@ class NewFighterDialogFragment : BottomSheetDialogFragment() {
                     binding.height.getText(),
                     binding.weight.getText(),
                     binding.reach.getText(),
-                    Stance.fromString(binding.stanceDropdownMenu.getSelectedItemText())!!,
-                    FightingStyle.fromString(checkedRadioButton.text.toString())!!,
+                    Stance.fromString(
+                        requireContext(),
+                        binding.stanceDropdownMenu.getSelectedItemText()
+                    )!!,
+                    FightingStyle.fromString(requireContext(),checkedRadioButton.text.toString())!!,
                     binding.win.getText(),
                     binding.lose.getText(),
                     binding.draw.getText(),
@@ -106,7 +109,7 @@ class NewFighterDialogFragment : BottomSheetDialogFragment() {
     private fun showSuccessNotification() {
         Snackbar.make(
             binding.root,
-            getString(sofascore.academy.sofaproject.R.string.add_fighter_success),
+            getString(R.string.add_fighter_success),
             Snackbar.LENGTH_SHORT
         ).show()
     }
@@ -114,7 +117,7 @@ class NewFighterDialogFragment : BottomSheetDialogFragment() {
     private fun showErrorNotification() {
         Toast.makeText(
             requireContext(),
-            getString(sofascore.academy.sofaproject.R.string.add_fighter_error),
+            getString(R.string.add_fighter_error),
             Toast.LENGTH_SHORT
         ).show()
     }

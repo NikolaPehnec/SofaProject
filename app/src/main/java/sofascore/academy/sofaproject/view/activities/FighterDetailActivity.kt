@@ -52,8 +52,8 @@ class FighterDetailActivity : AppCompatActivity() {
             height.text = fighter?.height
             weight.text = fighter?.weight
             reach.text = fighter?.reach
-            stance.text = fighter?.stance?.stanceName
-            fightingStyle.text = fighter?.fightingStyle?.styleName
+            stance.text = fighter?.stance?.toString(this@FighterDetailActivity)
+            fightingStyle.text = fighter?.fightingStyle?.toString(this@FighterDetailActivity)
             winDrawLose.text =
                 getString(R.string.fighter_score, fighter?.win, fighter?.draw, fighter?.lose)
         }
