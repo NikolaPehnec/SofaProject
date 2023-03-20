@@ -15,9 +15,7 @@ enum class FightingStyle(val styleNameIndex: Int) {
         }
     }
 
-
     fun toString(context: Context): String {
         return context.resources.getStringArray(R.array.fighting_style_arr)[styleNameIndex].toString()
     }
-
 }

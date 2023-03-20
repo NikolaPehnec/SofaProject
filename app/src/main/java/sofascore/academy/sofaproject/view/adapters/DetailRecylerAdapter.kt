@@ -5,15 +5,15 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import sofascore.academy.sofaproject.databinding.DetailItemRowBinding
 
-class DetailRecyclerAdapter(
+class DetailRecylerAdapter(
     private val labels: Array<String>,
     private val values: Array<String>
-) : RecyclerView.Adapter<DetailRecyclerAdapter.ViewHolderDetail>() {
+) : RecyclerView.Adapter<DetailRecylerAdapter.ViewHolderDetail>() {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): DetailRecyclerAdapter.ViewHolderDetail {
+    ): DetailRecylerAdapter.ViewHolderDetail {
         return ViewHolderDetail(
             DetailItemRowBinding.inflate(
                 LayoutInflater.from(parent.context),
@@ -23,7 +23,7 @@ class DetailRecyclerAdapter(
         )
     }
 
-    override fun onBindViewHolder(holder: DetailRecyclerAdapter.ViewHolderDetail, position: Int) {
+    override fun onBindViewHolder(holder: DetailRecylerAdapter.ViewHolderDetail, position: Int) {
         holder.bind(labels[position], values[position])
     }
 

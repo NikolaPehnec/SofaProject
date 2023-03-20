@@ -6,16 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.RadioButton
-import android.widget.Toast
 import androidx.core.view.children
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import com.google.android.material.snackbar.Snackbar
 import sofascore.academy.sofaproject.R
 import sofascore.academy.sofaproject.data.Fighter
 import sofascore.academy.sofaproject.data.FightingStyle
 import sofascore.academy.sofaproject.data.Stance
 import sofascore.academy.sofaproject.databinding.FragmentNewFighterBinding
+import sofascore.academy.sofaproject.utils.Functions
 import sofascore.academy.sofaproject.utils.customviews.TextLayoutAndEditText
 import sofascore.academy.sofaproject.viewmodel.FighterViewModel
 import java.net.URL
@@ -86,10 +85,10 @@ class NewFighterFragment : Fragment() {
                 )
             )
 
-            showSuccessNotification()
+            Functions.showSuccesSnackbarFighterAdded(requireContext(), binding.root)
             clearFields()
         } else {
-            showErrorNotification()
+            Functions.showErrorToastNewFighter(requireContext())
         }
     }
 
@@ -106,19 +105,6 @@ class NewFighterFragment : Fragment() {
         }
 
         return validated
-    }
-
-    fun showSuccessNotification() {
-        Snackbar.make(binding.root, getString(R.string.add_fighter_success), Snackbar.LENGTH_SHORT)
-            .show()
-    }
-
-    fun showErrorNotification() {
-        Toast.makeText(
-            requireContext(),
-            getString(R.string.add_fighter_error),
-            Toast.LENGTH_SHORT
-        ).show()
     }
 
     private fun clearFields() {

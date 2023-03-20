@@ -18,5 +18,4 @@ enum class Stance(val stanceNameIndex: Int) {
     fun toString(context: Context): String {
         return context.resources.getStringArray(R.array.stances)[stanceNameIndex].toString()
     }
-
 }

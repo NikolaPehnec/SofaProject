@@ -6,16 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.RadioButton
-import android.widget.Toast
 import androidx.core.view.children
 import androidx.fragment.app.activityViewModels
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.google.android.material.snackbar.Snackbar
 import sofascore.academy.sofaproject.R
 import sofascore.academy.sofaproject.data.Fighter
 import sofascore.academy.sofaproject.data.FightingStyle
 import sofascore.academy.sofaproject.data.Stance
 import sofascore.academy.sofaproject.databinding.NewFighterBottomSheetBinding
+import sofascore.academy.sofaproject.utils.Functions
 import sofascore.academy.sofaproject.utils.customviews.TextLayoutAndEditText
 import sofascore.academy.sofaproject.viewmodel.FighterViewModel
 import java.net.URL
@@ -76,7 +75,7 @@ class NewFighterDialogFragment : BottomSheetDialogFragment() {
                         requireContext(),
                         binding.stanceDropdownMenu.getSelectedItemText()
                     )!!,
-                    FightingStyle.fromString(requireContext(),checkedRadioButton.text.toString())!!,
+                    FightingStyle.fromString(requireContext(), checkedRadioButton.text.toString())!!,
                     binding.win.getText(),
                     binding.lose.getText(),
                     binding.draw.getText(),
@@ -84,10 +83,10 @@ class NewFighterDialogFragment : BottomSheetDialogFragment() {
                 )
             )
 
-            showSuccessNotification()
+            Functions.showSuccesSnackbarFighterAdded(requireContext(), binding.root)
             this.dismiss()
         } else {
-            showErrorNotification()
+            Functions.showErrorToastNewFighter(requireContext())
         }
     }
 
@@ -104,21 +103,5 @@ class NewFighterDialogFragment : BottomSheetDialogFragment() {
         }
 
         return validated
-    }
-
-    private fun showSuccessNotification() {
-        Snackbar.make(
-            binding.root,
-            getString(R.string.add_fighter_success),
-            Snackbar.LENGTH_SHORT
-        ).show()
-    }
-
-    private fun showErrorNotification() {
-        Toast.makeText(
-            requireContext(),
-            getString(R.string.add_fighter_error),
-            Toast.LENGTH_SHORT
-        ).show()
     }
 }
