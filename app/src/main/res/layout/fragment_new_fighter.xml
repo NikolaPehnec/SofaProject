@@ -5,32 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.main.NewFighterFragment">
+    tools:context=".view.fragments.NewFighterFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <TextView
-            android:id="@+id/title_text_view"
-            style="@style/Theme.SofaProject.Titles"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/activity_horizontal_margin"
-            android:layout_marginTop="@dimen/activity_horizontal_margin"
-            android:text="@string/new_fighter_title"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:layout_marginStart="8dp"
-            android:contentDescription="@string/fighter_img_desc"
-            android:src="@drawable/kickboxer_silhouette"
-            app:layout_constraintBottom_toBottomOf="@+id/title_text_view"
-            app:layout_constraintStart_toEndOf="@+id/title_text_view"
-            app:layout_constraintTop_toTopOf="@+id/title_text_view" />
 
         <ScrollView
             android:layout_width="match_parent"
@@ -38,7 +17,7 @@
             android:layout_marginTop="16dp"
             android:theme="@style/Theme.SofaProject"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title_text_view">
+            app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
                 android:id="@+id/new_fighter_linear_layout"
@@ -48,7 +27,7 @@
                 android:orientation="vertical"
                 android:paddingBottom="@dimen/scrollview_padding_bottom">
 
-                <sofascore.academy.sofaproject.utils.TextLayoutAndEditText
+                <sofascore.academy.sofaproject.utils.customviews.TextLayoutAndEditText
                     android:id="@+id/first_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -57,7 +36,7 @@
                     app:maxNumberOfCharacters="50"
                     app:minNumberOfCharacters="2" />
 
-                <sofascore.academy.sofaproject.utils.TextLayoutAndEditText
+                <sofascore.academy.sofaproject.utils.customviews.TextLayoutAndEditText
                     android:id="@+id/last_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -67,7 +46,7 @@
                     app:minNumberOfCharacters="2" />
 
 
-                <sofascore.academy.sofaproject.utils.TextLayoutAndEditText
+                <sofascore.academy.sofaproject.utils.customviews.TextLayoutAndEditText
                     android:id="@+id/nickname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -76,7 +55,7 @@
                     app:maxNumberOfCharacters="50"
                     app:minNumberOfCharacters="1" />
 
-                <sofascore.academy.sofaproject.utils.TextLayoutAndEditText
+                <sofascore.academy.sofaproject.utils.customviews.TextLayoutAndEditText
                     android:id="@+id/height"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -85,7 +64,7 @@
                     app:maxIntValue="250"
                     app:minIntValue="50" />
 
-                <sofascore.academy.sofaproject.utils.TextLayoutAndEditText
+                <sofascore.academy.sofaproject.utils.customviews.TextLayoutAndEditText
                     android:id="@+id/weight"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -94,7 +73,7 @@
                     app:maxIntValue="300"
                     app:minIntValue="40" />
 
-                <sofascore.academy.sofaproject.utils.TextLayoutAndEditText
+                <sofascore.academy.sofaproject.utils.customviews.TextLayoutAndEditText
                     android:id="@+id/reach"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -103,7 +82,7 @@
                     app:maxIntValue="300"
                     app:minIntValue="70" />
 
-                <sofascore.academy.sofaproject.utils.TextLayoutAndDropdownMenu
+                <sofascore.academy.sofaproject.utils.customviews.TextLayoutAndDropdownMenu
                     android:id="@+id/stance_dropdown_menu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -155,7 +134,7 @@
                     </RadioGroup>
                 </LinearLayout>
 
-                <sofascore.academy.sofaproject.utils.TextLayoutAndEditText
+                <sofascore.academy.sofaproject.utils.customviews.TextLayoutAndEditText
                     android:id="@+id/win"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -163,7 +142,7 @@
                     app:inputType="number"
                     app:maxIntValue="200" />
 
-                <sofascore.academy.sofaproject.utils.TextLayoutAndEditText
+                <sofascore.academy.sofaproject.utils.customviews.TextLayoutAndEditText
                     android:id="@+id/lose"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -172,7 +151,7 @@
                     app:maxIntValue="200" />
 
 
-                <sofascore.academy.sofaproject.utils.TextLayoutAndEditText
+                <sofascore.academy.sofaproject.utils.customviews.TextLayoutAndEditText
                     android:id="@+id/draw"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

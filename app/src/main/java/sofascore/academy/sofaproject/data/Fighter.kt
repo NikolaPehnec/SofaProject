@@ -1,5 +1,9 @@
 package sofascore.academy.sofaproject.data
 
+import android.content.Context
+import sofascore.academy.sofaproject.R
+import java.net.URL
+
 data class Fighter(
     val firstName: String,
     val lastName: String,
@@ -11,11 +15,19 @@ data class Fighter(
     val fightingStyle: FightingStyle,
     val win: String,
     val lose: String,
-    val draw: String
+    val draw: String,
+    val imageUrl: URL
 
-) {
-    override fun toString(): String {
-        return "$firstName, $lastName, $nickname, $height, $weight, $reach, ${stance.stanceName}," +
-            " ${fightingStyle.styleName}, $win, $lose, $draw"
-    }
+) : java.io.Serializable {
+
+    fun getDataAsList(context: Context) = arrayOf(
+        context.resources.getString(R.string.fighter_name, firstName, lastName),
+        nickname,
+        height,
+        weight,
+        reach,
+        stance.toString(context),
+        fightingStyle.toString(context),
+        context.resources.getString(R.string.fighter_score, win, lose, draw)
+    )
 }

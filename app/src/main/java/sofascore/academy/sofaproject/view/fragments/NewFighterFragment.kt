@@ -1,4 +1,4 @@
-package sofascore.academy.sofaproject.ui.main
+package sofascore.academy.sofaproject.view.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.RadioButton
-import android.widget.Toast
 import androidx.core.view.children
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -15,17 +14,16 @@ import sofascore.academy.sofaproject.data.Fighter
 import sofascore.academy.sofaproject.data.FightingStyle
 import sofascore.academy.sofaproject.data.Stance
 import sofascore.academy.sofaproject.databinding.FragmentNewFighterBinding
-import sofascore.academy.sofaproject.utils.TextLayoutAndEditText
+import sofascore.academy.sofaproject.utils.Functions
+import sofascore.academy.sofaproject.utils.customviews.TextLayoutAndEditText
+import sofascore.academy.sofaproject.viewmodel.FighterViewModel
+import java.net.URL
 
 class NewFighterFragment : Fragment() {
     private val fighterViewModel: FighterViewModel by activityViewModels()
     private var _binding: FragmentNewFighterBinding? = null
     private val binding get() = _binding!!
     private val textFields = mutableListOf<TextLayoutAndEditText>()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,10 +40,11 @@ class NewFighterFragment : Fragment() {
 
         val adapter = ArrayAdapter(
             requireContext(),
-            R.layout.list_item,
-            Stance.values().map { it.stanceName }.toTypedArray()
+            android.R.layout.simple_list_item_1,
+            resources.getStringArray(R.array.stances)
         )
         binding.stanceDropdownMenu.setStringArrayAdapter(adapter)
+        activity?.title = getString(R.string.new_fighter_title)
 
         return binding.root
     }
@@ -71,20 +70,29 @@ class NewFighterFragment : Fragment() {
                     binding.height.getText(),
                     binding.weight.getText(),
                     binding.reach.getText(),
-                    Stance.fromString(binding.stanceDropdownMenu.getSelectedItemText())!!,
-                    FightingStyle.fromString(checkedRadioButton.text.toString())!!,
+                    Stance.fromString(
+                        requireContext(),
+                        binding.stanceDropdownMenu.getSelectedItemText()
+                    )!!,
+                    FightingStyle.fromString(
+                        requireContext(),
+                        checkedRadioButton.text.toString()
+                    )!!,
                     binding.win.getText(),
                     binding.lose.getText(),
-                    binding.draw.getText()
+                    binding.draw.getText(),
+                    URL("https://live-production.wcms.abc-cdn.net.au/eead633374dd407290c366118c1b679e?impolicy=wcms_crop_resize&cropH=2893&cropW=4340&xPos=34&yPos=0&width=862&height=575")
                 )
             )
 
-            showSuccessNotification()
+            Functions.showSuccesSnackbarFighterAdded(requireContext(), binding.root)
             clearFields()
+        } else {
+            Functions.showErrorToastNewFighter(requireContext())
         }
     }
 
-    fun validateData(): Boolean {
+    private fun validateData(): Boolean {
         var validated = true
         textFields.forEach {
             if (!it.validateInput()) {
@@ -97,14 +105,6 @@ class NewFighterFragment : Fragment() {
         }
 
         return validated
-    }
-
-    private fun showSuccessNotification() {
-        Toast.makeText(
-            requireContext(),
-            getString(R.string.add_fighter_success),
-            Toast.LENGTH_SHORT
-        ).show()
     }
 
     private fun clearFields() {

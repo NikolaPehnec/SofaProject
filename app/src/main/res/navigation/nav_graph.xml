@@ -7,14 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_new_fighter"
-        android:name="sofascore.academy.sofaproject.ui.main.NewFighterFragment"
+        android:name="sofascore.academy.sofaproject.view.fragments.NewFighterFragment"
         android:label="@string/new_fighter_title"
         tools:layout="@layout/fragment_new_fighter" />
 
     <fragment
         android:id="@+id/navigation_view_fighters"
-        android:name="sofascore.academy.sofaproject.ui.main.ViewFightersFragment"
+        android:name="sofascore.academy.sofaproject.view.fragments.ViewFightersFragment"
         android:label="@string/view_fighters_title"
         tools:layout="@layout/fragment_view_fighters" />
+
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="sofascore.academy.sofaproject.view.fragments.SettingsFragment"
+        android:label="@string/settings_title" />
 
 </navigation>

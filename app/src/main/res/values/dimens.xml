@@ -2,8 +2,9 @@
     <dimen name="fab_margin">16dp</dimen>
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_horizontal_margin_small">4dp</dimen>
+    <dimen name="activity_horizontal_margin_small">8dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin_large">32dp</dimen>
     <dimen name="input_form_margin">32dp</dimen>
     <dimen name="activity_vertical_margin_small">8dp</dimen>
 
@@ -11,4 +12,6 @@
     <dimen name="appbar_padding_top">8dp</dimen>
     <dimen name="margin_top_textview">4dp</dimen>
     <dimen name="scrollview_padding_bottom">32dp</dimen>
+    <dimen name="list_item_spacing">16dp</dimen>
+    <dimen name="list_item_spacing_half">8dp</dimen>
 </resources>
